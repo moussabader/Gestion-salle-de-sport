@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ayoub.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="356.0" fitWidth="600.0" layoutX="1.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/images.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="470.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="events" layoutX="212.0" layoutY="175.0" mnemonicParsing="false" onAction="#go_events" prefHeight="34.0" prefWidth="176.0" text="EVENEMENTS" />
+   </children>
+</AnchorPane>
