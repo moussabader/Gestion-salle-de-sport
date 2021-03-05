@@ -14,6 +14,7 @@ public class Commande {
     
     private int id_commande;
     private String date_commande ;
+    private double montant;
     private static int count;
 
     public Commande() {
@@ -41,6 +42,15 @@ public class Commande {
     public void setDate_commande(String date_commande) {
         this.date_commande = date_commande;
     }
+
+    public double getMontant() {
+        return montant;
+    }
+
+    public void setMontant(double montant) {
+        this.montant = montant;
+    }
+    
 
     @Override
     public String toString() {

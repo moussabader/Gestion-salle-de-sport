@@ -25,7 +25,7 @@ public class MainClass {
     public static void main(String[] args) {
         MyConnection mc = MyConnection.getInstance();
         
-    /*  // Test Produit  
+      // Test Produit  
         ProduitCRUD pcd = new ProduitCRUD();
         Produit p = new Produit();
         
@@ -92,17 +92,18 @@ public class MainClass {
         System.out.println("---------------------------------------");
         
         // supprimer un produit 
-        
-        pcd.supprimerProduit(19);
+        Scanner sc8 = new Scanner(System.in);
+        System.out.println("Entrer l'id de produit à supprimer:");
+        int idp_supp = sc8.nextInt();
+        pcd.supprimerProduit(idp_supp);
         System.out.println(pcd.afficherProduits());
-       
-        */
+        
+        
         // Test Commande
-        /*CommandeCRUD ccd = new CommandeCRUD();
+        CommandeCRUD ccd = new CommandeCRUD();
         Commande c = new Commande();
-        int idc = c.getId_commande();
-        System.out.println(idc);
         LigneCommande lc = new LigneCommande();
+        
         // Ajouter une commande et ligne commande
         Scanner sc3 = new Scanner(System.in);
             
@@ -112,67 +113,92 @@ public class MainClass {
             c.setDate_commande(str);
         } else{
             System.out.println("date invalide");
-        }*/
-        /*if (str.matches("[0-9]{2}/[0-9]{2}/[0-9]{4}")) {
-            try {
-                Date date = new SimpleDateFormat("dd-MM-yyyy").parse(str);
-                c.setDate_commande(str);
-            } catch (ParseException ex) {
-                System.out.println(ex.getMessage());
-            }
-        } else {
-            System.out.println("Erreur format");
-        }*/
+        }
+                    /*if (str.matches("[0-9]{2}/[0-9]{2}/[0-9]{4}")) {
+                        try {
+                            Date date = new SimpleDateFormat("dd-MM-yyyy").parse(str);
+                            c.setDate_commande(str);
+                            } catch (ParseException ex) {
+                            System.out.println(ex.getMessage());
+                            }
+                            } else {
+                            System.out.println("Erreur format");
+                            }*/
         
-        /*ccd.ajouterCommande(c);
+        ccd.ajouterCommande(c);
         System.out.println(ccd.afficherCommandes());
-        
+        //Ajouter une ligne commande
+        System.out.println("Saisissez l'id de la commande récemment ajouté");
+        int idc = sc3.nextInt();
         System.out.println("Saisissez le nombre des produits commandés");
         int nbr = sc3.nextInt();
-        
         for (int i = 1; i <= nbr; i++) {
             System.out.println("Saisissez l'id de produit "+i+":");
             int idp = sc3.nextInt();
             System.out.println("Saisissez la quantité commandée de ce produit:");
             int qtecmd = sc3.nextInt();    
             lc.setQuantite_commande(qtecmd);
-            ccd.ajouterProduitCommande(str, idp, lc);
+            ccd.ajouterProduitCommande(idc,idp, lc);
+            double mt = ccd.calculerMontant(idc, idp);
+            ccd.updateMontant(mt,idc);
         }
-        System.out.println(ccd.afficherProduitCommandes());*/
+        //System.out.println(ccd.afficherProduitCommandes());
         
         
         
-     /* //modifier une commande  
+        //modifier une commande  
         Scanner sc4 = new Scanner(System.in);     
+        System.out.println("Entrer le nouveau date de commande:");
+        String newdate = sc4.nextLine();
+        c.setDate_commande(newdate);
 
-            
-            System.out.println("Entrer le nouveau date de commande:");
-            String newdate = sc4.nextLine();
-            c.setDate_commande(newdate);
-            
-            System.out.println("Entrer l'id de la commande à modifier:");
-            int id = sc4.nextInt();
-            
-            ccd.modifierCommande(c,id );
-            System.out.println(ccd.afficherCommandes());*/
-            
-          /*  //Supprimer une Commande
-            ccd.supprimerCommande(11);
-            System.out.println(ccd.afficherCommandes());*/
-            
-           /* //Modifier une ligne commande
-            ccd.modifierProduitCommande(p, lc, idc);
-            System.out.println(ccd.afficherProduitCommandes());*/
-          
-        /*   //Supprimer une ligne commande
-           ccd.supprimerProduitCommande(1);
-           System.out.println(ccd.afficherProduitCommandes());*/
-        
-     /*   //Afficher les listes des commandes et lignes commandes
+        System.out.println("Entrer l'id de la commande à modifier:");
+        int idc_edit = sc4.nextInt();
+
+        ccd.modifierCommande(c, idc_edit);
         System.out.println(ccd.afficherCommandes());
-        System.out.println(ccd.afficherProduitCommandes());*/
+            
+        //Supprimer une Commande
+        Scanner sc5 = new Scanner(System.in);
+        System.out.println("Entrer l'id de la commande à supprimer:");
+        int idc_supp=sc5.nextInt();
+        ccd.supprimerCommande(idc_supp);
+        System.out.println(ccd.afficherCommandes());
+            
+        //Modifier une ligne commande
+        Scanner sc6 = new Scanner(System.in);
+        System.out.println("Entrer l'id de la commande de la ligne à modifier:");
+        int id_lc=sc6.nextInt();
+        
+        System.out.println("Entrer le nouveau id de produit de la ligne à modifier:");
+        int idp_lc= sc6.nextInt();
+        p.setId_produit(idp_lc);
+        
+        System.out.println("Entrer la nouvelle quantité de la ligne à modifier:");
+        int qte_lc= sc6.nextInt();
+        lc.setQuantite_commande(qte_lc);
+        
+        ccd.modifierProduitCommande(p, lc, id_lc);
+        //System.out.println(ccd.afficherProduitCommandes());
+          
+        //Supprimer une ligne commande
+        Scanner sc7 = new Scanner(System.in);
+        System.out.println("Entrer l'id commande de la ligne commande à supprimer:");
+        int idlc_supp=sc7.nextInt();
+        ccd.supprimerProduitCommande(idlc_supp);
+        System.out.println(ccd.afficherProduitCommandes());
+        
+        //Afficher les listes des commandes et lignes commandes
+        System.out.println("Affichage de la liste des commandes");
+        System.out.println("-----------------------------------");
+        System.out.println(ccd.afficherCommandes());
+        //System.out.println("Affichage de la liste des lignes commandes");
+        //System.out.println("------------------------------------------");
+        //System.out.println(ccd.afficherProduitCommandes());
         
         
-        
+        //Test calcul montant d'une seule ligne commande
+        double i = ccd.calculerMontant(41, 21);
+        System.out.println(i);
     }
 }
