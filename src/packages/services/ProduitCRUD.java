@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import packages.gui.AjouterProduitController;
 
 
 public class ProduitCRUD implements IProduit{
@@ -23,7 +24,6 @@ public class ProduitCRUD implements IProduit{
     
     @Override
     public void ajouterProduit(Produit t) {
-        
         try{
         String req = "INSERT INTO produit (nom_produit,marque_produit,quantite,prix,image_path)" 
                 + "VALUES (?,?,?,?,?)";
@@ -42,6 +42,7 @@ public class ProduitCRUD implements IProduit{
         } catch (SQLException ex){
             System.out.println(ex.getMessage());
         }
+        
     }
 
     @Override

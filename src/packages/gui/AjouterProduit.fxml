@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AjouterProduitController">
+   <children>
+      <Label layoutX="43.0" layoutY="117.0" prefHeight="17.0" prefWidth="92.0" text="Nom de Produit " />
+      <Label layoutX="43.0" layoutY="194.0" prefHeight="17.0" prefWidth="108.0" text="Quantité disponible" />
+      <Label layoutX="43.0" layoutY="156.0" text="Marque de Produit" />
+      <Label layoutX="43.0" layoutY="225.0" prefHeight="27.0" prefWidth="63.0" text="Prix unitaire" />
+      <Label layoutX="43.0" layoutY="266.0" prefHeight="17.0" prefWidth="108.0" text="Image de produit" />
+      <Label layoutX="244.0" layoutY="14.0" text="Ajouter un Produit " textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nompr" layoutX="355.0" layoutY="113.0" prefHeight="25.0" prefWidth="225.0" />
+      <TextField fx:id="marquepr" layoutX="355.0" layoutY="152.0" prefHeight="25.0" prefWidth="225.0" />
+      <TextField fx:id="prixpr" layoutX="355.0" layoutY="226.0" prefHeight="25.0" prefWidth="225.0" />
+      <TextField fx:id="imgpr" layoutX="355.0" layoutY="262.0" prefHeight="25.0" prefWidth="225.0" />
+      <Button fx:id="btnajouterpr" layoutX="272.0" layoutY="311.0" mnemonicParsing="false" onAction="#AjouterProduit" prefHeight="25.0" prefWidth="109.0" text="Ajouter" />
+      <Separator layoutX="244.0" layoutY="106.0" orientation="VERTICAL" prefHeight="191.0" prefWidth="0.0" />
+      <Spinner fx:id="qtepr" layoutX="355.0" layoutY="189.0" prefHeight="25.0" prefWidth="108.0" />
+      <Button layoutX="272.0" layoutY="347.0" mnemonicParsing="false" onAction="#afficherListeProduits" text="Liste des Produits" />
+   </children>
+</AnchorPane>
