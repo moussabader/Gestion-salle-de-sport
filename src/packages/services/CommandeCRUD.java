@@ -100,20 +100,20 @@ public class CommandeCRUD implements ICommande{
     }
 
     @Override
-    public void modifierProduitCommande(Produit p,LigneCommande lc, int idc) {
+    public void modifierProduitCommande(int idp,LigneCommande lc, int idc) {
         try {
             String req = "UPDATE lignecommande SET quantite_commande=?, id_produit=? "
                     + " WHERE id_commande=?";
             PreparedStatement pst = MyConnection.getInstance().getCnx()
                     .prepareStatement(req);
             pst.setInt(1,lc.getQuantite_commande());
-            pst.setInt(2,p.getId_produit());
+            pst.setInt(2,idp);
             pst.setInt(3, idc);
             String req3 = "INSERT INTO commande (montant)"
                     + "VALUES (?)";
             PreparedStatement pst3 = MyConnection.getInstance().getCnx().prepareStatement(req3);
             CommandeCRUD ccd = new CommandeCRUD();
-            double mt = ccd.calculerMontant(idc, p.getId_produit());
+            double mt = ccd.calculerMontant(idc, idp);
             pst3.setDouble(1, mt);
             pst.executeUpdate();
             System.out.println("Ligne Commande modifiée!");
@@ -179,10 +179,10 @@ public class CommandeCRUD implements ICommande{
     }
 
     @Override
-    public List<LigneCommande> afficherProduitCommandes() {
+    public List<LigneCommande> afficherProduitCommandes(int idc) {
     List<LigneCommande> lignescommandesListe = new ArrayList<>();
         try {
-            String req = "SELECT * FROM lignecommande";
+            String req = "SELECT * FROM lignecommande WHERE id_commande="+String.valueOf(idc);
             Statement st = MyConnection.getInstance().getCnx().createStatement();
             ResultSet rs =  st.executeQuery(req);
             while(rs.next()){

@@ -25,8 +25,8 @@ public class Home extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root;
-            root = FXMLLoader.load(getClass().getResource("AjouterProduit.fxml"));
-            
+            //root = FXMLLoader.load(getClass().getResource("AjouterProduit.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ListProduitClient.fxml"));
             Scene scene = new Scene(root);
             
             //primaryStage.setTitle("Ajout des Produits");

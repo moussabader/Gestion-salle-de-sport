@@ -53,7 +53,6 @@ public class ListProduitController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tv_produit.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         showProduits();
     }  
     

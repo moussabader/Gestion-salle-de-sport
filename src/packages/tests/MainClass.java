@@ -177,8 +177,8 @@ public class MainClass {
         System.out.println("Entrer la nouvelle quantité de la ligne à modifier:");
         int qte_lc= sc6.nextInt();
         lc.setQuantite_commande(qte_lc);
-        
-        ccd.modifierProduitCommande(p, lc, id_lc);
+        int id2 = p.getId_produit();
+        ccd.modifierProduitCommande(id2, lc, id_lc);
         //System.out.println(ccd.afficherProduitCommandes());
           
         //Supprimer une ligne commande
@@ -186,7 +186,7 @@ public class MainClass {
         System.out.println("Entrer l'id commande de la ligne commande à supprimer:");
         int idlc_supp=sc7.nextInt();
         ccd.supprimerProduitCommande(idlc_supp);
-        System.out.println(ccd.afficherProduitCommandes());
+        //System.out.println(ccd.afficherProduitCommandes());
         
         //Afficher les listes des commandes et lignes commandes
         System.out.println("Affichage de la liste des commandes");

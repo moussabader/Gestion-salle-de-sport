@@ -5,8 +5,11 @@
  */
 package packages.gui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,6 +27,8 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import packages.entities.Produit;
 import packages.services.ProduitCRUD;
 
@@ -43,14 +48,19 @@ public class AjouterProduitController implements Initializable {
     private Button btnajouterpr;
     @FXML
     private Spinner<Integer> qtepr;
-    SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
+    
+    private List<String> listfiles;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        qtepr.setValueFactory(svf);  
+        SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
+        qtepr.setValueFactory(svf);
+        listfiles = new ArrayList<>();
+        listfiles.add("*.png");
+        listfiles.add("*.jpg");
     }    
 
     @FXML
@@ -87,7 +97,7 @@ public class AjouterProduitController implements Initializable {
     }
     
     public void afficherListeProduits() {
-        
+ 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ListProduit.fxml"));
 
         try {
@@ -97,9 +107,8 @@ public class AjouterProduitController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        
-        
-        }
+
+    }
     //Test de validation de prix 
     private boolean validateNumber() {
         Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
@@ -119,5 +128,12 @@ public class AjouterProduitController implements Initializable {
         }
     }
 
-    
+    public void fileChooser(ActionEvent event) {
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new ExtensionFilter("Image Files", listfiles));
+        File f = fc.showOpenDialog(null);
+        if(f != null) {
+            imgpr.setText(f.getAbsolutePath());
+        }
+    }
 }

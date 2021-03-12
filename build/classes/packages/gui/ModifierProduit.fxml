@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="packages.gui.ModifierProduitController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ModifierProduitController">
    <children>
       <Label layoutX="47.0" layoutY="100.0" prefHeight="17.0" prefWidth="92.0" text="Nom de Produit " />
       <Label layoutX="47.0" layoutY="140.0" prefHeight="17.0" prefWidth="105.0" text="Marque de Produit" />
@@ -30,5 +29,10 @@
       <Button fx:id="btn_valider_edit" layoutX="247.0" layoutY="314.0" mnemonicParsing="false" onAction="#modifierProduit" prefHeight="25.0" prefWidth="109.0" text="Valider" />
       <TextField fx:id="edit_idpr" layoutX="338.0" layoutY="53.0" opacity="0.0" prefHeight="25.0" prefWidth="215.0" />
       <Button layoutX="247.0" layoutY="351.0" mnemonicParsing="false" onAction="#afficherListeProduits" text="Liste des Produits" />
+      <Button layoutX="258.0" layoutY="257.0" mnemonicParsing="false" onAction="#fileChooser" text="Parcourir">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
