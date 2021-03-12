@@ -7,6 +7,8 @@ package packages.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import static java.time.temporal.TemporalQueries.localDate;
@@ -16,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Spinner;
@@ -24,6 +27,7 @@ import javafx.scene.control.TextField;
 import packages.entities.Commande;
 import packages.entities.LigneCommande;
 import packages.services.CommandeCRUD;
+import packages.tools.MyConnection;
 
 
 public class ModifierCommandeController implements Initializable {
@@ -95,6 +99,26 @@ public class ModifierCommandeController implements Initializable {
         
         cc.modifierCommande(c, idc);
         cc.modifierProduitCommande(id_pr, lc, idc);
+        try {
+            String req3 = "UPDATE commande SET montant=? WHERE id_commande=?";
+            PreparedStatement pst3 = MyConnection.getInstance().getCnx().prepareStatement(req3);
+            CommandeCRUD ccd = new CommandeCRUD();
+            double mt = ccd.calculerMontant(idc, id_pr);
+            pst3.setDouble(1, mt);
+            pst3.setInt(2, idc);
+            pst3.executeUpdate();
+            System.out.println("montant mise à jour !");
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Succès!");
+        alert.setHeaderText(null);
+        alert.setContentText("La commande a été modifiée avec succès");
+        alert.showAndWait();
+        afficherListeCommandes();
+         
         
     }
     

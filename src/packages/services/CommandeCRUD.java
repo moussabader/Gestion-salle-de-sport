@@ -109,15 +109,17 @@ public class CommandeCRUD implements ICommande{
             pst.setInt(1,lc.getQuantite_commande());
             pst.setInt(2,idp);
             pst.setInt(3, idc);
-            String req3 = "INSERT INTO commande (montant)"
-                    + "VALUES (?)";
+            
+           /* String req3 = "UPDATE commande SET montant=? WHERE id_commande=?";
             PreparedStatement pst3 = MyConnection.getInstance().getCnx().prepareStatement(req3);
             CommandeCRUD ccd = new CommandeCRUD();
             double mt = ccd.calculerMontant(idc, idp);
             pst3.setDouble(1, mt);
+            pst3.setInt(2, idc);
+            pst3.executeUpdate();*/
             pst.executeUpdate();
             System.out.println("Ligne Commande modifiée!");
-            System.out.println("montant mise à jour !");
+            //System.out.println("montant mise à jour !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -245,7 +247,7 @@ public class CommandeCRUD implements ICommande{
         String req = "UPDATE commande SET montant=?+? WHERE id_commande=?";
         PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
         CommandeCRUD ccd=new CommandeCRUD();
-        double mt1=ccd.calculerMontant(0,0);
+        //double mt1=ccd.calculerMontant(0,0);
         pst.setDouble(1,c.getMontant() );
         pst.setDouble(2, mt);
         pst.setInt(3, idc);

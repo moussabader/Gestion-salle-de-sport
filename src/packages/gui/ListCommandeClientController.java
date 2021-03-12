@@ -79,7 +79,7 @@ public class ListCommandeClientController implements Initializable {
         tv_cmd_client.setItems(list);
     }
     
-    public void showCommandeDetalis() {
+    public void showCommandeDetails() {
 
         Commande c = tv_cmd_client.getSelectionModel().getSelectedItem();
         int idc = c.getId_commande();

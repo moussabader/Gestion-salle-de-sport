@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListCommandeClientController">
+<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListCommandeClientController">
    <children>
       <TableView fx:id="tv_cmd_client" layoutX="14.0" layoutY="64.0" prefHeight="259.0" prefWidth="339.0">
         <columns>
@@ -38,6 +38,6 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn_aff_lc" layoutX="294.0" layoutY="348.0" mnemonicParsing="false" onAction="#showCommandeDetalis" text="Afficher Ligne(s) Commande" />
+      <Button fx:id="btn_aff_lc" layoutX="294.0" layoutY="348.0" mnemonicParsing="false" onAction="#showCommandeDetails" text="Afficher Ligne(s) Commande" />
    </children>
 </AnchorPane>

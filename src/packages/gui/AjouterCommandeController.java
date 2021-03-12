@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -55,6 +56,7 @@ public class AjouterCommandeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
         qtecmd.setValueFactory(svf);
+        datecmd.setValue(LocalDate.now());
     }
     
     public void setIDpr(String msg) {
@@ -63,36 +65,43 @@ public class AjouterCommandeController implements Initializable {
 
     @FXML
     private void ajouterCommande(ActionEvent event) {
-        String date_commande = datecmd.getValue().toString();
-        int quantite_commande = qtecmd.getValue();
         
-        Commande c = new Commande(date_commande);
-        CommandeCRUD cc = new CommandeCRUD();
-        cc.ajouterCommande(c);
-        
-        
-        List<Commande> commandesListe = new ArrayList<>();
-        try {
-            String req = "SELECT * FROM commande";
-            Statement st = MyConnection.getInstance().getCnx().createStatement();
-            ResultSet rs =  st.executeQuery(req);
-            while(rs.next()){
-                Commande c1 = new Commande();
-                c1.setId_commande(rs.getInt("id_commande"));
-                commandesListe.add(c1);
+
+            String date_commande = datecmd.getValue().toString();
+            int quantite_commande = qtecmd.getValue();
+
+            Commande c = new Commande(date_commande);
+            CommandeCRUD cc = new CommandeCRUD();
+            cc.ajouterCommande(c);
+
+            List<Commande> commandesListe = new ArrayList<>();
+            try {
+                String req = "SELECT * FROM commande";
+                Statement st = MyConnection.getInstance().getCnx().createStatement();
+                ResultSet rs = st.executeQuery(req);
+                while (rs.next()) {
+                    Commande c1 = new Commande();
+                    c1.setId_commande(rs.getInt("id_commande"));
+                    commandesListe.add(c1);
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
             }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        int idc = commandesListe.get(commandesListe.size()-1).getId_commande();
-        
-        LigneCommande lc = new LigneCommande(quantite_commande);
-        lc.setId_produit(Integer.parseInt(id_pr.getText()));
-        int idp = lc.getId_produit();
-        
-        cc.ajouterProduitCommande(idc,idp,lc);
-        double mt = cc.calculerMontant(idc, idp);
-        cc.updateMontant(mt, idc);
+            int idc = commandesListe.get(commandesListe.size() - 1).getId_commande();
+
+            LigneCommande lc = new LigneCommande(quantite_commande);
+            lc.setId_produit(Integer.parseInt(id_pr.getText()));
+            int idp = lc.getId_produit();
+
+            cc.ajouterProduitCommande(idc, idp, lc);
+            double mt = cc.calculerMontant(idc, idp);
+            cc.updateMontant(mt, idc);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Succès!");
+            alert.setHeaderText(null);
+            alert.setContentText("La commande est ajouté avec succès");
+            alert.showAndWait();
+            afficherListeCommandes();
     }
     
     public void afficherListeProduits() {
@@ -123,7 +132,5 @@ public class AjouterCommandeController implements Initializable {
         
 
     }
-    
-    
     
 }
