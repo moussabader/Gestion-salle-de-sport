@@ -8,6 +8,7 @@ package packages.gui;
 import com.sun.prism.shader.Solid_ImagePattern_Loader;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,6 +31,7 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import packages.entities.Commande;
 import packages.entities.LigneCommande;
+import packages.entities.Produit;
 import packages.services.CommandeCRUD;
 import packages.tools.MyConnection;
 
@@ -65,15 +67,32 @@ public class AjouterCommandeController implements Initializable {
 
     @FXML
     private void ajouterCommande(ActionEvent event) {
-        
 
-            String date_commande = datecmd.getValue().toString();
-            int quantite_commande = qtecmd.getValue();
-
+        String date_commande = datecmd.getValue().toString();
+        int quantite_commande = qtecmd.getValue();
+        int idp = Integer.parseInt(id_pr.getText());
+        //récupérer la quantité actuelle du produit
+        List<Produit> lp = new ArrayList<>();
+        try {
+            String req1 = "SELECT quantite FROM produit WHERE id_produit=" + idp;
+            Statement st1 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st1.executeQuery(req1);
+            Produit p = new Produit();
+            while (rs.next()) {
+                p.setQuantite(rs.getInt("quantite"));
+                lp.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        int qtep = lp.get(0).getQuantite();
+        //test et ajout
+        if (verifQuantite(quantite_commande, idp)) {
+            
             Commande c = new Commande(date_commande);
             CommandeCRUD cc = new CommandeCRUD();
             cc.ajouterCommande(c);
-
+            //récupérer l'id de commande ajouté
             List<Commande> commandesListe = new ArrayList<>();
             try {
                 String req = "SELECT * FROM commande";
@@ -90,18 +109,25 @@ public class AjouterCommandeController implements Initializable {
             int idc = commandesListe.get(commandesListe.size() - 1).getId_commande();
 
             LigneCommande lc = new LigneCommande(quantite_commande);
-            lc.setId_produit(Integer.parseInt(id_pr.getText()));
-            int idp = lc.getId_produit();
-
             cc.ajouterProduitCommande(idc, idp, lc);
+            // MAJ du montant et du quantité
             double mt = cc.calculerMontant(idc, idp);
             cc.updateMontant(mt, idc);
+            cc.updateQuantite(lc.getQuantite_commande(), idp);
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succès!");
             alert.setHeaderText(null);
             alert.setContentText("La commande est ajouté avec succès");
             alert.showAndWait();
             afficherListeCommandes();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("La quantité disponible de ce produit est " + qtep + " uniquement!");
+            alert.showAndWait();
+        }
     }
     
     public void afficherListeProduits() {
@@ -129,7 +155,27 @@ public class AjouterCommandeController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        
+    }
+    public boolean verifQuantite(int qtec, int idp){
+        List<Produit> lp = new ArrayList<>();
+        try {
+            String req1 = "SELECT quantite FROM produit WHERE id_produit=" + idp;
+            Statement st1 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st1.executeQuery(req1);
+            Produit p = new Produit();
+            while (rs.next()) {
+                p.setQuantite(rs.getInt("quantite"));
+                lp.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        int qtep = lp.get(0).getQuantite();
+        if (qtep < qtec) {
+            return false;
+        } else {
+            return true;
+        }
 
     }
     

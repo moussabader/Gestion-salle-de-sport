@@ -67,50 +67,72 @@ public class CommandeCRUD implements ICommande{
 
     @Override
     public void ajouterProduitCommande(int idc, int idp, LigneCommande lc) {
-    try{
-        /*Date sqldate = Date.valueOf(date);
+    
+        List<Produit> lp = new ArrayList<>();
+        try {
+            /*Date sqldate = Date.valueOf(date);
         String req = "SELECT id_commande FROM commande WHERE date_commande="+sqldate;
         Statement st = MyConnection.getInstance().getCnx().prepareStatement(req);
         ResultSet res = st.executeQuery(req);*/
-     
-        String req2 = "INSERT INTO lignecommande (id_produit,quantite_commande,id_commande)" 
-                + "VALUES (?,?,?)";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req2);
-        pst.setInt(1,idp);
-        pst.setInt(2,lc.getQuantite_commande());
-        pst.setInt(3, idc);
-        pst.executeUpdate();
-        System.out.println("Ligne Commande ajoutée");
-        
-        /*String req3 = "UPDATE commande SET montant=? WHERE id_commande=?";
-        PreparedStatement pst3 = MyConnection.getInstance().getCnx().prepareStatement(req3);
-        CommandeCRUD ccd=new CommandeCRUD();
-        double mt=ccd.calculerMontant(idc,idp);
-        pst3.setDouble(1, mt);
-        pst3.setInt(2, idc);
-        pst3.executeUpdate();
-        */
-        /*while(res.next()){
-        pst.setInt(1,res.getInt("id_commande"));
-        }*/
-        //System.out.println("montant mise à jour !");
-        } catch (SQLException ex){
+            String req1 = "SELECT nom_produit FROM produit WHERE id_produit=" + idp;
+            Statement st1 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st1.executeQuery(req1);
+            Produit p = new Produit();
+            while (rs.next()) {
+                p.setNom_produit(rs.getString("nom_produit"));
+                lp.add(p);
+            }
+            String nomp = lp.get(0).getNom_produit();
+            String req2 = "INSERT INTO lignecommande (id_produit,quantite_commande,id_commande,nom_produit)"
+                    + "VALUES (?,?,?,?)";
+            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req2);
+            pst.setInt(1, idp);
+            pst.setInt(2, lc.getQuantite_commande());
+            pst.setInt(3, idc);
+            pst.setString(4, nomp);
+            pst.executeUpdate();
+            System.out.println("Ligne Commande ajoutée");
+
+            /*String req3 = "UPDATE commande SET montant=? WHERE id_commande=?";
+            PreparedStatement pst3 = MyConnection.getInstance().getCnx().prepareStatement(req3);
+            CommandeCRUD ccd=new CommandeCRUD();
+            double mt=ccd.calculerMontant(idc,idp);
+            pst3.setDouble(1, mt);
+            pst3.setInt(2, idc);
+            pst3.executeUpdate();
+             */
+            /*while(res.next()){
+            pst.setInt(1,res.getInt("id_commande"));
+            }*/
+            //System.out.println("montant mise à jour !");
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
     @Override
     public void modifierProduitCommande(int idp,LigneCommande lc, int idc) {
+        List<Produit> lp = new ArrayList<>();
         try {
-            String req = "UPDATE lignecommande SET quantite_commande=?, id_produit=? "
+            String req1 = "SELECT nom_produit FROM produit WHERE id_produit=" + idp;
+            Statement st1 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st1.executeQuery(req1);
+            Produit p = new Produit();
+            while (rs.next()) {
+                p.setNom_produit(rs.getString("nom_produit"));
+                lp.add(p);
+            }
+            String nomp = lp.get(0).getNom_produit();
+            String req = "UPDATE lignecommande SET quantite_commande=?, id_produit=?, nom_produit=? "
                     + " WHERE id_commande=?";
             PreparedStatement pst = MyConnection.getInstance().getCnx()
                     .prepareStatement(req);
-            pst.setInt(1,lc.getQuantite_commande());
-            pst.setInt(2,idp);
-            pst.setInt(3, idc);
-            
-           /* String req3 = "UPDATE commande SET montant=? WHERE id_commande=?";
+            pst.setInt(1, lc.getQuantite_commande());
+            pst.setInt(2, idp);
+            pst.setString(3, nomp);
+            pst.setInt(4, idc);
+
+            /* String req3 = "UPDATE commande SET montant=? WHERE id_commande=?";
             PreparedStatement pst3 = MyConnection.getInstance().getCnx().prepareStatement(req3);
             CommandeCRUD ccd = new CommandeCRUD();
             double mt = ccd.calculerMontant(idc, idp);
@@ -192,6 +214,7 @@ public class CommandeCRUD implements ICommande{
                 lc.setQuantite_commande(rs.getInt("quantite_commande"));
                 lc.setId_commande(rs.getInt("id_commande"));
                 lc.setId_produit(rs.getInt("id_produit"));
+                lc.setNom_produit(rs.getString("nom_produit"));
                 lignescommandesListe.add(lc);
             }
         } catch (SQLException ex) {
@@ -246,13 +269,43 @@ public class CommandeCRUD implements ICommande{
             }
         String req = "UPDATE commande SET montant=?+? WHERE id_commande=?";
         PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
-        CommandeCRUD ccd=new CommandeCRUD();
+        //CommandeCRUD ccd=new CommandeCRUD();
         //double mt1=ccd.calculerMontant(0,0);
         pst.setDouble(1,c.getMontant() );
         pst.setDouble(2, mt);
         pst.setInt(3, idc);
         pst.executeUpdate();
         }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    @Override
+    public void updateQuantite(int qte,int idp) {
+        
+        try {
+         
+            String req = "UPDATE produit SET quantite=quantite-? WHERE id_produit=?";
+            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
+            pst.setDouble(1, qte);
+            pst.setInt(2, idp);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+
+    @Override
+    public void updateQuantiteOld(int qte, int idp) {
+        try {
+         
+            String req = "UPDATE produit SET quantite=quantite+? WHERE id_produit=?";
+            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
+            pst.setDouble(1, qte);
+            pst.setInt(2, idp);
+            pst.executeUpdate();
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }

@@ -12,6 +12,15 @@ public class LigneCommande {
     private int quantite_commande;
     private int id_produit;
     private int id_commande;
+    private String nom_produit;
+
+    public String getNom_produit() {
+        return nom_produit;
+    }
+
+    public void setNom_produit(String nom_produit) {
+        this.nom_produit = nom_produit;
+    }
 
     public LigneCommande() {
     }

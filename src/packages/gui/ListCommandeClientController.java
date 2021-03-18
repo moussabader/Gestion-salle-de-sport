@@ -39,9 +39,9 @@ public class ListCommandeClientController implements Initializable {
     @FXML
     private TableView<Commande> tv_cmd_client;
     @FXML
-    private TableColumn<Commande, Integer> col_idcmd;
+    private TableColumn<Commande, Integer> col_datecmd;
     @FXML
-    private TableColumn<Commande, String> col_datecmd;
+    private TableColumn<Commande, String> col_idcmd;
     @FXML
     private TableColumn<Commande, Double> col_mtcmd;
     @FXML
@@ -50,6 +50,8 @@ public class ListCommandeClientController implements Initializable {
     private TableColumn<LigneCommande, Integer> col_idcmd_lc;
     @FXML
     private TableColumn<LigneCommande, Integer> col_idpr_lc;
+    @FXML
+    private TableColumn<LigneCommande, String> col_nompr_lc;
     @FXML
     private TableColumn<LigneCommande, Integer> col_qtecmd_lc;
     @FXML
@@ -70,12 +72,11 @@ public class ListCommandeClientController implements Initializable {
     public void showCommandes() {
         CommandeCRUD cc = new CommandeCRUD();
         List<Commande> listcmd = cc.afficherCommandes();
-        ObservableList<Commande> list = FXCollections.observableArrayList(listcmd);     
+        ObservableList<Commande> list = FXCollections.observableArrayList(listcmd);   
         
         col_idcmd.setCellValueFactory(new PropertyValueFactory<>("id_commande"));
         col_datecmd.setCellValueFactory(new PropertyValueFactory<>("date_commande"));
         col_mtcmd.setCellValueFactory(new PropertyValueFactory<>("montant"));
-        
         tv_cmd_client.setItems(list);
     }
     
@@ -87,10 +88,10 @@ public class ListCommandeClientController implements Initializable {
         List<LigneCommande> listlc= cc .afficherProduitCommandes(idc);
         ObservableList<LigneCommande> list = FXCollections.observableArrayList(listlc);
         
-        col_idcmd_lc.setCellValueFactory(new PropertyValueFactory<>("id_commande") );
-        col_idpr_lc.setCellValueFactory(new PropertyValueFactory<>("id_produit") );
-        col_qtecmd_lc.setCellValueFactory(new PropertyValueFactory<>("quantite_commande") );
-        
+        col_idcmd_lc.setCellValueFactory(new PropertyValueFactory<>("id_commande"));
+        col_idpr_lc.setCellValueFactory(new PropertyValueFactory<>("id_produit"));
+        col_nompr_lc.setCellValueFactory(new PropertyValueFactory<>("nom_produit") );
+        col_qtecmd_lc.setCellValueFactory(new PropertyValueFactory<>("quantite_commande") );     
         tv_lc_client.setItems(list);
         
     }
@@ -129,6 +130,7 @@ public class ListCommandeClientController implements Initializable {
                 lc.setQuantite_commande(rs.getInt("quantite_commande"));
                 lc.setId_commande(rs.getInt("id_commande"));
                 lc.setId_produit(rs.getInt("id_produit"));
+                lc.setNom_produit(rs.getString("nom_produit"));
                 lignescommandesListe.add(lc);
             }
         } catch (SQLException ex) {
@@ -138,12 +140,17 @@ public class ListCommandeClientController implements Initializable {
         int qte = lc.getQuantite_commande();
         int idc = lc.getId_commande();
         int idp = lc.getId_produit();
+        String nomp = lc.getNom_produit();
         
         ModifierCommandeController mcc = loader.getController();
         mcc.setEditDateCmd(c.getDate_commande());
         mcc.setEditQtepr(qte);
+        mcc.setEditQteprOld(qte);
         mcc.setEditIdCmd(""+idc);
         mcc.setEditPrCmd(""+idp);
+        mcc.setEditPrCmdOld(""+idp);
+        mcc.setNomPr(nomp);
+        
         tv_cmd_client.getScene().setRoot(root);
 
         
@@ -165,7 +172,7 @@ public class ListCommandeClientController implements Initializable {
         Optional<ButtonType> btn = alert.showAndWait();
         if (btn.get() == ButtonType.OK) {
             cc.supprimerCommande(c.getId_commande());
-            cc.supprimerProduitCommande(c.getId_commande());
+            //cc.supprimerProduitCommande(c.getId_commande());
             showCommandes();
             tv_lc_client.refresh();
             Alert resAlert = new Alert(Alert.AlertType.INFORMATION);

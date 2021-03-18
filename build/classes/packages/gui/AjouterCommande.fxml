@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="packages.gui.AjouterCommandeController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AjouterCommandeController">
    <children>
       <Label layoutX="201.0" layoutY="14.0" text="Ajouter une Commande">
          <font>
@@ -25,6 +24,6 @@
       <Button fx:id="btn_ajoutcmd" layoutX="245.0" layoutY="316.0" mnemonicParsing="false" onAction="#ajouterCommande" prefHeight="25.0" prefWidth="110.0" text="Ajouter" />
       <Button fx:id="btn_listpr" layoutX="391.0" layoutY="316.0" mnemonicParsing="false" onAction="#afficherListeProduits" prefHeight="25.0" prefWidth="110.0" text="Liste des Produits" />
       <Separator layoutX="242.0" layoutY="137.0" orientation="VERTICAL" prefHeight="102.0" prefWidth="1.0" />
-      <TextField fx:id="id_pr" layoutX="313.0" layoutY="102.0" opacity="0.0" />
+      <TextField fx:id="id_pr" editable="false" layoutX="313.0" layoutY="102.0" visible="false" />
    </children>
 </AnchorPane>

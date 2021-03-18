@@ -45,7 +45,13 @@ public class ModifierProduitCommandeController implements Initializable {
     @FXML
     private Spinner<Integer> edited_qte;
     @FXML
+    private Spinner<Integer> edited_qte_old;
+    @FXML
     private TextField edited_idcmd;
+    @FXML
+    private TextField edited_idpr_old;
+    @FXML
+    private TextField edited_nompr;
 
     /**
      * Initializes the controller class.
@@ -81,6 +87,10 @@ public class ModifierProduitCommandeController implements Initializable {
         mcc.setEditDateCmd(edited_date.getValue().toString());
         mcc.setEditQtepr(edited_qte.getValue());
         mcc.setEditIdCmd(edited_idcmd.getText());
+        mcc.setEditQteprOld(edited_qte_old.getValue());
+        mcc.setEditPrCmdOld(edited_idpr_old.getText());
+        mcc.setNomPr(""+p.getNom_produit());
+        
         tv_editprcmd.getScene().setRoot(root);
         
         } catch (IOException ex) {
@@ -96,7 +106,17 @@ public class ModifierProduitCommandeController implements Initializable {
         SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100,i,1);
         this.edited_qte.setValueFactory(svf);
     }
+    public void setEditedQteOld(int i) {
+        SpinnerValueFactory<Integer> svf = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100,i,1);
+        this.edited_qte_old.setValueFactory(svf);
+    }
     public void setEditedIdCmd(String msg){
         this.edited_idcmd.setText(msg);
+    }
+    public void setEditedIdPrOld(String msg){
+        this.edited_idpr_old.setText(msg);
+    }
+    public void setEditedNomPr(String msg){
+        this.edited_nompr.setText(msg);
     }
 }

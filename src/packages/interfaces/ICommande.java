@@ -23,4 +23,6 @@ public interface ICommande {
     public List<LigneCommande> afficherProduitCommandes(int idc);
     public double calculerMontant (int idc , int idp);
     public void updateMontant(double mt,int idc);
+    public void updateQuantite(int q,int idp);
+    public void updateQuantiteOld(int q,int idp);
 }

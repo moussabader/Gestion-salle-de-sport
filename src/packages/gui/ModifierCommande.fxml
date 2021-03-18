@@ -13,14 +13,14 @@
    <children>
       <Label layoutX="74.0" layoutY="125.0" text="Date de Commande" />
       <Label layoutX="74.0" layoutY="172.0" text="Quantité Commandée" />
-      <Button fx:id="btn_edit_prcmd" layoutX="354.0" layoutY="211.0" mnemonicParsing="false" onAction="#afficherInterfaceEditPrCmd" prefHeight="25.0" prefWidth="51.0" text="Choisir">
+      <Button fx:id="btn_edit_prcmd" layoutX="308.0" layoutY="211.0" mnemonicParsing="false" onAction="#afficherInterfaceEditPrCmd" prefHeight="25.0" prefWidth="51.0" text="Choisir">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
-      <TextField fx:id="edit_prcmd" layoutX="428.0" layoutY="210.0" opacity="0.0" prefHeight="27.0" prefWidth="68.0" />
-      <DatePicker fx:id="edit_datecmd" layoutX="354.0" layoutY="119.0" />
-      <Spinner fx:id="edit_qtecmd" layoutX="354.0" layoutY="166.0" prefHeight="25.0" prefWidth="108.0" />
+      <TextField fx:id="edit_prcmd" editable="false" layoutX="496.0" layoutY="211.0" prefHeight="17.0" prefWidth="44.0" visible="false" />
+      <DatePicker fx:id="edit_datecmd" layoutX="308.0" layoutY="119.0" prefHeight="25.0" prefWidth="181.0" />
+      <Spinner fx:id="edit_qtecmd" editable="true" layoutX="308.0" layoutY="166.0" prefHeight="25.0" prefWidth="108.0" />
       <Label layoutX="74.0" layoutY="223.0" text="Produit Commandé" />
       <Separator layoutX="229.0" layoutY="116.0" orientation="VERTICAL" prefHeight="137.0" prefWidth="4.0" />
       <Button fx:id="btn_valider_edit" layoutX="229.0" layoutY="291.0" mnemonicParsing="false" onAction="#modifierCommande" prefHeight="25.0" prefWidth="130.0" text="Valider" />
@@ -29,7 +29,10 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="edit_id_cmd" layoutX="354.0" layoutY="80.0" opacity="0.0" prefHeight="25.0" prefWidth="77.0" />
+      <TextField fx:id="edit_id_cmd" editable="false" layoutX="308.0" layoutY="80.0" prefHeight="25.0" prefWidth="77.0" visible="false" />
       <Button fx:id="btn_listcmd" layoutX="229.0" layoutY="334.0" mnemonicParsing="false" onAction="#afficherListeCommandes" text="Liste des commandes" />
+      <Spinner fx:id="edit_qtecmd_old" layoutX="437.0" layoutY="166.0" prefHeight="25.0" prefWidth="108.0" visible="false" />
+      <TextField fx:id="edit_prcmd_old" editable="false" layoutX="548.0" layoutY="211.0" prefHeight="25.0" prefWidth="44.0" visible="false" />
+      <TextField fx:id="nom_pr" editable="false" layoutX="374.0" layoutY="211.0" prefHeight="25.0" prefWidth="117.0" />
    </children>
 </AnchorPane>

@@ -10,18 +10,19 @@
 
 <AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListCommandeClientController">
    <children>
-      <TableView fx:id="tv_cmd_client" layoutX="14.0" layoutY="64.0" prefHeight="259.0" prefWidth="339.0">
+      <TableView fx:id="tv_cmd_client" layoutX="48.0" layoutY="64.0" prefHeight="259.0" prefWidth="272.0">
         <columns>
-          <TableColumn fx:id="col_idcmd" prefWidth="99.0" text="ID Commande" />
-          <TableColumn fx:id="col_datecmd" prefWidth="115.0" text="Date Commande" />
-            <TableColumn fx:id="col_mtcmd" prefWidth="124.0" text="Montant Total" />
+          <TableColumn fx:id="col_idcmd" minWidth="1.0" prefWidth="94.0" text="ID Commande" visible="false" />
+          <TableColumn fx:id="col_datecmd" prefWidth="130.0" text="Date Commande" />
+            <TableColumn fx:id="col_mtcmd" prefWidth="139.0" text="Montant Total" />
         </columns>
       </TableView>
-      <TableView fx:id="tv_lc_client" layoutX="392.0" layoutY="64.0" prefHeight="259.0" prefWidth="339.0">
+      <TableView fx:id="tv_lc_client" layoutX="426.0" layoutY="64.0" prefHeight="259.0" prefWidth="272.0">
         <columns>
-          <TableColumn fx:id="col_idcmd_lc" prefWidth="94.0" text="ID Commande" />
-          <TableColumn fx:id="col_idpr_lc" prefWidth="87.0" text="ID Produit" />
-            <TableColumn fx:id="col_qtecmd_lc" prefWidth="157.0" text="Quantité Commandée" />
+          <TableColumn fx:id="col_idcmd_lc" prefWidth="94.0" text="ID Commande" visible="false" />
+          <TableColumn fx:id="col_idpr_lc" prefWidth="87.0" text="ID Produit" visible="false" />
+            <TableColumn fx:id="col_nompr_lc" prefWidth="126.0" text="Nom Produit" />
+            <TableColumn fx:id="col_qtecmd_lc" prefWidth="143.0" text="Quantité Commandée" />
         </columns>
       </TableView>
       <Separator layoutX="371.0" layoutY="64.0" orientation="VERTICAL" prefHeight="259.0" prefWidth="0.0" />
