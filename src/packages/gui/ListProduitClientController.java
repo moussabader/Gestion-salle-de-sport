@@ -7,8 +7,13 @@ package packages.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,8 +25,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.util.Callback;
 import packages.entities.Produit;
 import packages.services.ProduitCRUD;
+import packages.tools.MyConnection;
 
 
 public class ListProduitClientController implements Initializable {
@@ -36,6 +48,8 @@ public class ListProduitClientController implements Initializable {
     private TableColumn<Produit, Double> col_prix_c;
     @FXML
     private Button btn_commanderpr;
+    @FXML
+    private GridPane grid_img;
 
     /**
      * Initializes the controller class.
@@ -43,6 +57,8 @@ public class ListProduitClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showProduits();
+        
+    
     }
     
     public void showProduits() {
@@ -54,6 +70,7 @@ public class ListProduitClientController implements Initializable {
         col_nom_c.setCellValueFactory(new PropertyValueFactory<>("nom_produit"));
         col_marque_c.setCellValueFactory(new PropertyValueFactory<>("marque_produit"));
         col_prix_c.setCellValueFactory(new PropertyValueFactory<>("prix"));
+        
         
         tv_pr_client.setItems(list);
     }
@@ -76,6 +93,13 @@ public class ListProduitClientController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+    @FXML
+    private void showImage(MouseEvent event) {
+      Produit p = tv_pr_client.getSelectionModel().getSelectedItem();
+      String path = p.getImage_path();
+      grid_img.getChildren().clear();
+      grid_img.add(new ImageView(new Image("file:/"+path, 193, 200, false, false)), 0, 0);
     }
     
 }

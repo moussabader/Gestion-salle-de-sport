@@ -24,6 +24,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import packages.entities.Produit;
 import packages.services.ProduitCRUD;
 
@@ -52,6 +56,8 @@ public class ModifierProduitCommandeController implements Initializable {
     private TextField edited_idpr_old;
     @FXML
     private TextField edited_nompr;
+    @FXML
+    private GridPane grid_img;
 
     /**
      * Initializes the controller class.
@@ -118,5 +124,13 @@ public class ModifierProduitCommandeController implements Initializable {
     }
     public void setEditedNomPr(String msg){
         this.edited_nompr.setText(msg);
+    }
+    @FXML
+    private void showImage(MouseEvent event) {
+      Produit p = tv_editprcmd.getSelectionModel().getSelectedItem();
+      String path = p.getImage_path();
+      grid_img.getChildren().clear();
+      grid_img.add(new ImageView(new Image("file:/"+path, 193, 200, false, false)), 0, 0);
+ 
     }
 }

@@ -26,6 +26,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import packages.entities.Commande;
 import packages.entities.LigneCommande;
 import packages.entities.Produit;
@@ -67,6 +68,7 @@ public class ListCommandeClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showCommandes();
+        
     }
     
     public void showCommandes() {
@@ -79,8 +81,8 @@ public class ListCommandeClientController implements Initializable {
         col_mtcmd.setCellValueFactory(new PropertyValueFactory<>("montant"));
         tv_cmd_client.setItems(list);
     }
-    
-    public void showCommandeDetails() {
+    @FXML
+    public void showCommandeDetails(MouseEvent event) {
 
         Commande c = tv_cmd_client.getSelectionModel().getSelectedItem();
         int idc = c.getId_commande();

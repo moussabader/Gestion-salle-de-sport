@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListCommandeClientController">
    <children>
-      <TableView fx:id="tv_cmd_client" layoutX="48.0" layoutY="64.0" prefHeight="259.0" prefWidth="272.0">
+      <TableView fx:id="tv_cmd_client" layoutX="48.0" layoutY="64.0" onMouseClicked="#showCommandeDetails" prefHeight="259.0" prefWidth="272.0">
         <columns>
           <TableColumn fx:id="col_idcmd" minWidth="1.0" prefWidth="94.0" text="ID Commande" visible="false" />
           <TableColumn fx:id="col_datecmd" prefWidth="130.0" text="Date Commande" />
@@ -39,6 +39,5 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn_aff_lc" layoutX="294.0" layoutY="348.0" mnemonicParsing="false" onAction="#showCommandeDetails" text="Afficher Ligne(s) Commande" />
    </children>
 </AnchorPane>
