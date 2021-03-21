@@ -12,6 +12,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,10 +20,17 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import packages.entities.Produit;
 import packages.services.ProduitCRUD;
 
@@ -47,13 +55,23 @@ public class ListProduitController implements Initializable {
     private Button btn_ed_pr;
     @FXML
     private Button btn_del_pr;
-
+    @FXML 
+    private GridPane grid_img;
+    @FXML
+    private TextField txt_search;
+    @FXML
+    private ChoiceBox<String> list_search;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showProduits();
+        filteredSearch();
+        list_search.getItems().addAll("Nom Produit", "Marque Produit", "Quantité", "Prix");
+        list_search.setValue("Nom Produit");
+        txt_search.setPromptText("Rechercher ");
+
     }  
     
     /*public ObservableList<Produit> getProduits() {
@@ -76,6 +94,7 @@ public class ListProduitController implements Initializable {
         col_img.setCellValueFactory(new PropertyValueFactory<>("image_path"));
         
         tv_produit.setItems(list);
+ 
     }
 
     public void afficherInterfaceModif() {
@@ -133,6 +152,57 @@ public class ListProduitController implements Initializable {
         } else {
             alert.close();
         }
+    }
+    @FXML
+    private void showImage(MouseEvent event) {
+      Produit p = tv_produit.getSelectionModel().getSelectedItem();
+      String path = p.getImage_path();
+      grid_img.getChildren().clear();
+      grid_img.add(new ImageView(new Image("file:/"+path, 193, 200, false, false)), 0, 0);
+    }
+    public void afficherListCmd() {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListCommandeAdmin.fxml"));
+
+        try {
+            Parent root = loader.load();
+            tv_produit.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    @FXML
+    public void filteredSearch(){
+        ProduitCRUD pc = new ProduitCRUD();
+        List<Produit> listPr = pc.afficherProduits();
+        ObservableList<Produit> list = FXCollections.observableArrayList(listPr);
+        FilteredList<Produit> flProduit = new FilteredList(list,p -> true);
+        //tv_produit.setItems(flProduit);
+        txt_search.textProperty().addListener((obs, oldValue, newValue) -> {
+            switch (list_search.getValue()) {
+                case "Nom Produit":
+                    flProduit.setPredicate(p -> p.getNom_produit().toLowerCase().contains(newValue.toLowerCase().trim()));
+                    break;
+                case "Marque Produit":
+                    flProduit.setPredicate(p -> p.getMarque_produit().toLowerCase().contains(newValue.toLowerCase().trim()));
+                    break;
+                case "Quantité":
+                    flProduit.setPredicate(p -> String.valueOf(p.getQuantite()).contains(newValue.trim()));
+                    break;
+                case "Prix":
+                    flProduit.setPredicate(p -> String.valueOf(p.getPrix()).contains(newValue.trim()));
+                    break;
+            }
+            
+        });
+        tv_produit.setItems(flProduit);
+        list_search.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> 
+        {
+            if(newVal!= null){
+                txt_search.setText("");
+            }
+        });
     }
 
 }

@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,10 +24,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import packages.entities.Commande;
@@ -38,7 +36,7 @@ import packages.services.ProduitCRUD;
 import packages.tools.MyConnection;
 
 
-public class ListCommandeClientController implements Initializable {
+public class ListCommandeAdminController implements Initializable {
 
     @FXML
     private TableView<Commande> tv_cmd_client;
@@ -59,12 +57,10 @@ public class ListCommandeClientController implements Initializable {
     @FXML
     private TableColumn<LigneCommande, Integer> col_qtecmd_lc;
     @FXML
-    private Button btn_edit_cmd;
-    @FXML
     private Button btn_listpr;
     @FXML
     private Button btn_del_cmd;
-    
+
     /**
      * Initializes the controller class.
      */
@@ -104,7 +100,7 @@ public class ListCommandeClientController implements Initializable {
     public void afficherListeProduits() {
         
          
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListProduitClient.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListProduit.fxml"));
         try {
             Parent root = loader.load();
             tv_cmd_client.getScene().setRoot(root);
@@ -114,95 +110,29 @@ public class ListCommandeClientController implements Initializable {
         }
         
 
-    }
-    
-    public void afficherInterfaceModif(){
-        
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierCommande.fxml"));
-        
-        try {
-        Parent root = loader.load();
-        Commande c = tv_cmd_client.getSelectionModel().getSelectedItem();
-        
-        List<LigneCommande> lignescommandesListe = new ArrayList<>();
-        LigneCommande lc = new LigneCommande();
-        try {
-            String req = "SELECT * FROM lignecommande WHERE id_commande="+String.valueOf(c.getId_commande());
-            Statement st = MyConnection.getInstance().getCnx().createStatement();
-            ResultSet rs =  st.executeQuery(req);
-            while(rs.next()){
-                
-                lc.setQuantite_commande(rs.getInt("quantite_commande"));
-                lc.setId_commande(rs.getInt("id_commande"));
-                lc.setId_produit(rs.getInt("id_produit"));
-                lc.setNom_produit(rs.getString("nom_produit"));
-                lignescommandesListe.add(lc);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        int qte = lc.getQuantite_commande();
-        int idc = lc.getId_commande();
-        int idp = lc.getId_produit();
-        String nomp = lc.getNom_produit();
-        
-        ModifierCommandeController mcc = loader.getController();
-        mcc.setEditDateCmd(c.getDate_commande());
-        mcc.setEditQtepr(qte);
-        mcc.setEditQteprOld(qte);
-        mcc.setEditIdCmd(""+idc);
-        mcc.setEditPrCmd(""+idp);
-        mcc.setEditPrCmdOld(""+idp);
-        mcc.setNomPr(nomp);
-        
-        tv_cmd_client.getScene().setRoot(root);
-
-        
-        
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    
+    }   
     public void supprimerCommande(){
         
+        ObservableList<Commande> lc = tv_cmd_client.getSelectionModel().getSelectedItems();
         Commande c = tv_cmd_client.getSelectionModel().getSelectedItem();
         CommandeCRUD cc = new CommandeCRUD();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Demande de confirmation");
         alert.setHeaderText(null);
-        alert.setContentText("Etes-vous sûr de vouloir supprimer la commande ");
+        alert.setContentText("Est-ce que cette commande va être livrée au client ");
         Optional<ButtonType> btn = alert.showAndWait();
         if (btn.get() == ButtonType.OK) {
             cc.supprimerCommande(c.getId_commande());
             //cc.supprimerProduitCommande(c.getId_commande());
-            /*LigneCommande lcmd = new LigneCommande();
-            try {
-                String req = "SELECT * FROM lignecommande WHERE id_commande=" + String.valueOf(c.getId_commande());
-                Statement st = MyConnection.getInstance().getCnx().createStatement();
-                ResultSet rs = st.executeQuery(req);
-                while (rs.next()) {
-
-                    lcmd.setQuantite_commande(rs.getInt("quantite_commande"));
-                    lcmd.setId_produit(rs.getInt("id_produit"));
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-            int q = lcmd.getQuantite_commande();
-            int id_p = lcmd.getId_produit();
-            cc.updateQuantiteOld(q, id_p);*/
             showCommandes();
             tv_lc_client.refresh();
             Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
             resAlert.setHeaderText(null);
-            resAlert.setContentText("La commande a été supprimé");
+            resAlert.setContentText("La commande a été livée");
             resAlert.showAndWait();
         } else {
             alert.close();
         }
     }
-    
     
 }

@@ -16,14 +16,18 @@ import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -50,6 +54,11 @@ public class ListProduitClientController implements Initializable {
     private Button btn_commanderpr;
     @FXML
     private GridPane grid_img;
+    @FXML
+    private TextField txt_search;
+    @FXML
+    private ChoiceBox<String> list_search;
+    
 
     /**
      * Initializes the controller class.
@@ -57,7 +66,10 @@ public class ListProduitClientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showProduits();
-        
+        filteredSearch();
+        list_search.getItems().addAll("Nom Produit", "Marque Produit", "Prix");
+        list_search.setValue("Nom Produit");
+        txt_search.setPromptText("Rechercher ");
     
     }
     
@@ -100,6 +112,35 @@ public class ListProduitClientController implements Initializable {
       String path = p.getImage_path();
       grid_img.getChildren().clear();
       grid_img.add(new ImageView(new Image("file:/"+path, 193, 200, false, false)), 0, 0);
+    }
+    @FXML
+    public void filteredSearch(){
+        ProduitCRUD pc = new ProduitCRUD();
+        List<Produit> listPr = pc.afficherProduits();
+        ObservableList<Produit> list = FXCollections.observableArrayList(listPr);
+        FilteredList<Produit> flProduit = new FilteredList(list,p -> true);
+        
+        txt_search.textProperty().addListener((obs, oldValue, newValue) -> {
+            switch (list_search.getValue()) {
+                case "Nom Produit":
+                    flProduit.setPredicate(p -> p.getNom_produit().toLowerCase().contains(newValue.toLowerCase().trim()));
+                    break;
+                case "Marque Produit":
+                    flProduit.setPredicate(p -> p.getMarque_produit().toLowerCase().contains(newValue.toLowerCase().trim()));
+                    break;
+                case "Prix":
+                    flProduit.setPredicate(p -> String.valueOf(p.getPrix()).contains(newValue.trim()));
+                    break;
+            }
+            
+        });
+        tv_pr_client.setItems(flProduit);
+        list_search.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> 
+        {
+            if(newVal!= null){
+                txt_search.setText("");
+            }
+        });
     }
     
 }
