@@ -28,7 +28,7 @@
       <Separator layoutX="371.0" layoutY="64.0" orientation="VERTICAL" prefHeight="259.0" prefWidth="0.0" />
       <Button fx:id="btn_edit_cmd" layoutX="294.0" layoutY="422.0" mnemonicParsing="false" onAction="#afficherInterfaceModif" prefHeight="25.0" prefWidth="166.0" text="Modifier" />
       <Button fx:id="btn_listpr" layoutX="294.0" layoutY="386.0" mnemonicParsing="false" onAction="#afficherListeProduits" prefHeight="25.0" prefWidth="166.0" text="Liste des Produits" />
-      <Button fx:id="btn_del_cmd" layoutX="294.0" layoutY="459.0" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="25.0" prefWidth="166.0" text="Supprimer" />
+      <Button fx:id="btn_del_cmd" layoutX="294.0" layoutY="459.0" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="25.0" prefWidth="166.0" text="Annuler" />
       <Label layoutX="93.0" layoutY="20.0" text="Liste des Commandes">
          <font>
             <Font name="System Bold Italic" size="18.0" />

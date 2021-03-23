@@ -92,7 +92,11 @@ public class CommandeCRUD implements ICommande{
             pst.setString(4, nomp);
             pst.executeUpdate();
             System.out.println("Ligne Commande ajoutée");
-
+            String req3 = "UPDATE produit SET quantite_commande=quantite_commande+? WHERE nom_produit=?";
+            PreparedStatement pst2 = MyConnection.getInstance().getCnx().prepareStatement(req3);
+            pst2.setInt(1, lc.getQuantite_commande());
+            pst2.setString(2, nomp);
+            pst2.executeUpdate();
             /*String req3 = "UPDATE commande SET montant=? WHERE id_commande=?";
             PreparedStatement pst3 = MyConnection.getInstance().getCnx().prepareStatement(req3);
             CommandeCRUD ccd=new CommandeCRUD();

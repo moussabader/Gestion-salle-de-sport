@@ -175,9 +175,8 @@ public class ListCommandeClientController implements Initializable {
         alert.setContentText("Etes-vous sûr de vouloir supprimer la commande ");
         Optional<ButtonType> btn = alert.showAndWait();
         if (btn.get() == ButtonType.OK) {
-            cc.supprimerCommande(c.getId_commande());
-            //cc.supprimerProduitCommande(c.getId_commande());
-            /*LigneCommande lcmd = new LigneCommande();
+            
+            LigneCommande lcmd = new LigneCommande();
             try {
                 String req = "SELECT * FROM lignecommande WHERE id_commande=" + String.valueOf(c.getId_commande());
                 Statement st = MyConnection.getInstance().getCnx().createStatement();
@@ -192,7 +191,10 @@ public class ListCommandeClientController implements Initializable {
             }
             int q = lcmd.getQuantite_commande();
             int id_p = lcmd.getId_produit();
-            cc.updateQuantiteOld(q, id_p);*/
+            cc.updateQuantiteOld(q, id_p);
+            
+            cc.supprimerCommande(c.getId_commande());
+            //cc.supprimerProduitCommande(c.getId_commande());
             showCommandes();
             tv_lc_client.refresh();
             Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
