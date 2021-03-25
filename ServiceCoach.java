@@ -6,9 +6,7 @@
 package Service;
 
 import Entities.Coach;
-import Services.ISericeCoach;
 import Utils.MyConnection;
-import com.oracle.net.Sdp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,29 +16,28 @@ import java.util.List;
 
 /**
  *
- * @author Riva
+ * @author hiheb
  */
-public class ServiceCoach implements ISericeCoach {
-
-    Connection cnx;
+public class ServiceCoach {
+Connection cnx;
     private PreparedStatement ste ;
 
     public ServiceCoach() {
     cnx =MyConnection.getInstance().getConnection();        
     }
     
-    @Override
+    
     public void ajouterc(Coach c) {
-       String req ="INSERT INTO coach (idcoach, nomc, prenomc, genrec, loginc ,pwc) VALUES (?,?,?,?,?,?)";
+       String req ="INSERT INTO coach (nom_co, prenom_co, genre_co, login_co ,mdp_co) VALUES (?,?,?,?,?)";
         try {
             ste = cnx.prepareStatement(req);
             
-            ste.setInt(1,c.getIdcoach());
-            ste.setString(2,c.getNomc());
-            ste.setString(3,c.getPrenomc());
-	    ste.setString(4,c.getGenrec());
-            ste.setString(5,c.getLoginc());
-            ste.setString(6,c.getPwc());
+            
+            ste.setString(1,c.getNom_co());
+            ste.setString(2,c.getPrenom_co());
+	    ste.setString(3,c.getGenre_co());
+            ste.setString(4,c.getLogin_co());
+            ste.setString(5,c.getMdp_co());
             ste.executeUpdate();
             System.out.println("Coach ajoutée");
             
@@ -59,12 +56,12 @@ public class ServiceCoach implements ISericeCoach {
             while (e.next()) {
                 Coach pre = new Coach();
               
-            pre.setIdcoach(e.getInt("idcoach"));
-            pre.setNomc(e.getString("nomc"));
-            pre.setPrenomc(e.getString("prenomc"));
-            pre.setGenrec(e.getString("genrec"));
-            pre.setLoginc(e.getString("loginc"));
-            pre.setPwc(e.getString("pwc"));
+            pre.setId_co(e.getInt("id_co"));
+            pre.setNom_co(e.getString("nom_co"));
+            pre.setPrenom_co(e.getString("prenom_co"));
+            pre.setGenre_co(e.getString("genre_co"));
+            pre.setLogin_co(e.getString("login_co"));
+            pre.setMdp_co(e.getString("mdp_co"));
             
                 Mylist.add(pre);
             }
@@ -75,16 +72,14 @@ public class ServiceCoach implements ISericeCoach {
         return Mylist;
     }
    
-   @Override
-    public ResultSet afficherc() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
+    
     
     public void supprimerc (Coach c ) {
-    String requete = "DELETE FROM coach where idcoach=?";
+    String requete = "DELETE FROM coach where nom_co =?";
            try {
             PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setInt(1, c.getIdcoach());
+            pst.setString(1, c.getNom_co());
             pst.executeUpdate();
             System.out.println("coach Supprimée !!!!");
         } catch (SQLException ex) {
@@ -95,31 +90,42 @@ public class ServiceCoach implements ISericeCoach {
     public void modifierc (Coach c) {
     
         try {
-            String requete = "update coach set nomc=?,prenomc=?,genrec=?,loginc=?,pwc=? where ? = idcoach";
+            String requete = "update coach set prenom_co =?, genre_co =? , login_co =? , mdp_co =? where ? = nom_co";
             PreparedStatement pre = cnx.prepareStatement(requete);
 
-            pre.setString(1, c.getNomc());
-            pre.setString(2, c.getPrenomc());
-            pre.setString(3, c.getGenrec());
-            pre.setString(4, c.getLoginc());
-            pre.setString(5, c.getPwc());
-            pre.setInt(6,c.getIdcoach());
+            pre.setString(1, c.getPrenom_co());
+            pre.setString(2, c.getGenre_co());
+            pre.setString(3, c.getLogin_co());
+            pre.setString(4, c.getMdp_co());
+            pre.setString(5,c.getNom_co());
 
             pre.executeUpdate();
-            System.out.println("evenement Updated !!!");
+            System.out.println("Coach Updated !!!");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
 
     }
    
-    
-    
+        
     
 
-   
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

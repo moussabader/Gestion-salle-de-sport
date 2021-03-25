@@ -7,86 +7,78 @@ package Entities;
 
 /**
  *
- * @author Riva
+ * @author hiheb
  */
 public class Coach {
-    private int idcoach ; 
-    private String nomc , prenomc , genrec , loginc,pwc ; 
+    int id_co ; 
+    String nom_co , prenom_co , genre_co , login_co , mdp_co ; 
 
-    public Coach() {}
-    
-    
-    public Coach(int idcoach, String nomc, String prenomc, String genrec, String loginc , String pwc ) {
-        this.idcoach = idcoach;
-        this.nomc = nomc;
-        this.prenomc = prenomc;
-        this.genrec = genrec;
-        this.loginc = loginc;
-        this.pwc = pwc ; 
-    }
-    public Coach(int idcoach,int idc, String nomc, String prenomc, String genrec, String loginc , String pwc ) {
-        this.idcoach = idcoach;
-        this.idcoach=idc ;
-        this.nomc = nomc;
-        this.prenomc = prenomc;
-        this.genrec = genrec;
-        this.loginc = loginc;
-        this.pwc = pwc ; 
+    public Coach(int id_co, String nom_co, String prenom_co, String genre_co, String login_co, String mdp_co) {
+        this.id_co = id_co;
+        this.nom_co = nom_co;
+        this.prenom_co = prenom_co;
+        this.genre_co = genre_co;
+        this.login_co = login_co;
+        this.mdp_co = mdp_co;
     }
 
-
-    public int getIdcoach() {
-        return idcoach;
+    public Coach(String nom_co, String prenom_co, String genre_co, String login_co, String mdp_co) {
+        this.nom_co = nom_co;
+        this.prenom_co = prenom_co;
+        this.genre_co = genre_co;
+        this.login_co = login_co;
+        this.mdp_co = mdp_co;
     }
 
-    public void setIdcoach(int idcoach) {
-        this.idcoach = idcoach;
+    public Coach() {
     }
 
-    public String getNomc() {
-        return nomc;
+    public int getId_co() {
+        return id_co;
     }
 
-    public void setNomc(String nomc) {
-        this.nomc = nomc;
+    public void setId_co(int id_co) {
+        this.id_co = id_co;
     }
 
-    public String getPrenomc() {
-        return prenomc;
+    public String getNom_co() {
+        return nom_co;
     }
 
-    public void setPrenomc(String prenomc) {
-        this.prenomc = prenomc;
+    public void setNom_co(String nom_co) {
+        this.nom_co = nom_co;
     }
 
-    public String getGenrec() {
-        return genrec;
+    public String getPrenom_co() {
+        return prenom_co;
     }
 
-    public void setGenrec(String genrec) {
-        this.genrec = genrec;
+    public void setPrenom_co(String prenom_co) {
+        this.prenom_co = prenom_co;
     }
 
-    public String getLoginc() {
-        return loginc;
+    public String getGenre_co() {
+        return genre_co;
     }
 
-    public void setLoginc(String loginc) {
-        this.loginc = loginc;
+    public void setGenre_co(String genre_co) {
+        this.genre_co = genre_co;
     }
 
-    public String getPwc() {
-        return pwc;
+    public String getLogin_co() {
+        return login_co;
     }
 
-    public void setPwc(String pwc) {
-        this.pwc = pwc;
+    public void setLogin_co(String login_co) {
+        this.login_co = login_co;
     }
 
-    @Override
-    public String toString() {
-        return "Coach{" + "idcoach=" + idcoach + ", nomc=" + nomc + ", prenomc=" + prenomc + ", genrec=" + genrec + ", loginc=" + loginc + ", pwc=" + pwc + '}';
+    public String getMdp_co() {
+        return mdp_co;
     }
-    
+
+    public void setMdp_co(String mdp_co) {
+        this.mdp_co = mdp_co;
+    }
     
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="944.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="gusers.AdminCoachController">
+   <children>
+      <TableView fx:id="table_coach" layoutX="501.0" layoutY="61.0" onMouseClicked="#getselected" prefHeight="449.0" prefWidth="418.0">
+        <columns>
+          <TableColumn fx:id="nco_colone" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="pco_colone" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="gco_colone" prefWidth="75.0" text="Genre" />
+            <TableColumn fx:id="lco_colone" prefWidth="75.0" text="Login" />
+            <TableColumn fx:id="mdpco_colone" prefWidth="117.0" text="Mot de passe" />
+        </columns>
+      </TableView>
+      <TextField fx:id="nco_text" layoutX="223.0" layoutY="116.0" prefHeight="35.0" prefWidth="145.0" />
+      <TextField fx:id="pco_text" layoutX="223.0" layoutY="180.0" prefHeight="35.0" prefWidth="145.0" />
+      <TextField fx:id="lco_text" layoutX="223.0" layoutY="286.0" prefHeight="35.0" prefWidth="145.0" />
+      <ComboBox fx:id="gco_combo" layoutX="221.0" layoutY="233.0" prefHeight="35.0" prefWidth="150.0" />
+      <PasswordField fx:id="mdpco_text" layoutX="221.0" layoutY="339.0" prefHeight="35.0" prefWidth="149.0" />
+      <Label layoutX="114.0" layoutY="125.0" text="Nom" />
+      <Label layoutX="114.0" layoutY="189.0" text="Prenom" />
+      <Label layoutX="119.0" layoutY="242.0" text="Genre" />
+      <Label layoutX="120.0" layoutY="295.0" text="Login" />
+      <Label layoutX="118.0" layoutY="348.0" text="Mot de passe" />
+      <Button layoutX="194.0" layoutY="415.0" mnemonicParsing="false" onAction="#ajouterco" prefHeight="35.0" prefWidth="85.0" text="Ajouter" />
+      <Button layoutX="329.0" layoutY="415.0" mnemonicParsing="false" onAction="#modifierco" prefHeight="35.0" prefWidth="85.0" text="Modifier" />
+      <Button layoutX="265.0" layoutY="475.0" mnemonicParsing="false" onAction="#supprimerco" prefHeight="35.0" prefWidth="85.0" text="Supprimer" />
+      <TextField fx:id="id_text" layoutX="263.0" layoutY="49.0" prefHeight="9.0" prefWidth="32.0" />
+   </children>
+</AnchorPane>
