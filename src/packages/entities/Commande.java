@@ -16,6 +16,7 @@ public class Commande {
     private String date_commande ;
     private double montant;
     private static int count;
+    private int id_client;
 
     public Commande() {
         this.id_commande= ++count;
@@ -49,6 +50,14 @@ public class Commande {
 
     public void setMontant(double montant) {
         this.montant = montant;
+    }
+    
+    public int getId_client() {
+        return id_client;
+    }
+
+    public void setId_client(int id_client) {
+        this.id_client = id_client;
     }
     
 

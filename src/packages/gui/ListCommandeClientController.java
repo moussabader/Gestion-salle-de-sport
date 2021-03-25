@@ -76,7 +76,8 @@ public class ListCommandeClientController implements Initializable {
     
     public void showCommandes() {
         CommandeCRUD cc = new CommandeCRUD();
-        List<Commande> listcmd = cc.afficherCommandes();
+        int idcl = 1;
+        List<Commande> listcmd = cc.afficherCommandesClient(idcl);
         ObservableList<Commande> list = FXCollections.observableArrayList(listcmd);   
         
         col_idcmd.setCellValueFactory(new PropertyValueFactory<>("id_commande"));

@@ -13,14 +13,9 @@ public class LigneCommande {
     private int id_produit;
     private int id_commande;
     private String nom_produit;
+    private String nom_client;
 
-    public String getNom_produit() {
-        return nom_produit;
-    }
-
-    public void setNom_produit(String nom_produit) {
-        this.nom_produit = nom_produit;
-    }
+    
 
     public LigneCommande() {
     }
@@ -52,6 +47,22 @@ public class LigneCommande {
     public void setId_commande(int id_commande) {
         this.id_commande = id_commande;
     }
+    public String getNom_produit() {
+        return nom_produit;
+    }
+
+    public void setNom_produit(String nom_produit) {
+        this.nom_produit = nom_produit;
+    }
+
+    public String getNom_client() {
+        return nom_client;
+    }
+
+    public void setNom_client(String nom_client) {
+        this.nom_client = nom_client;
+    }
+    
     
     
 }

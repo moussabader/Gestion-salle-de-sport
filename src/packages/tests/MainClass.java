@@ -125,7 +125,7 @@ public class MainClass {
                             System.out.println("Erreur format");
                             }*/
         
-        ccd.ajouterCommande(c);
+        ccd.ajouterCommande(c,1);
         System.out.println(ccd.afficherCommandes());
         //Ajouter une ligne commande
         System.out.println("Saisissez l'id de la commande récemment ajouté");
@@ -138,7 +138,7 @@ public class MainClass {
             System.out.println("Saisissez la quantité commandée de ce produit:");
             int qtecmd = sc3.nextInt();    
             lc.setQuantite_commande(qtecmd);
-            ccd.ajouterProduitCommande(idc,idp, lc);
+            ccd.ajouterProduitCommande(idc,idp, lc,1);
             double mt = ccd.calculerMontant(idc, idp);
             ccd.updateMontant(mt,idc);
         }

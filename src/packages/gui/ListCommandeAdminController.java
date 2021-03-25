@@ -47,6 +47,8 @@ public class ListCommandeAdminController implements Initializable {
     @FXML
     private TableColumn<Commande, Double> col_mtcmd;
     @FXML
+    private TableColumn<Commande, Integer> col_idcl;
+    @FXML
     private TableView<LigneCommande> tv_lc_client;
     @FXML
     private TableColumn<LigneCommande, Integer> col_idcmd_lc;
@@ -56,6 +58,8 @@ public class ListCommandeAdminController implements Initializable {
     private TableColumn<LigneCommande, String> col_nompr_lc;
     @FXML
     private TableColumn<LigneCommande, Integer> col_qtecmd_lc;
+    @FXML
+    private TableColumn<LigneCommande, String> col_nomcl;
     @FXML
     private Button btn_listpr;
     @FXML
@@ -78,6 +82,7 @@ public class ListCommandeAdminController implements Initializable {
         col_idcmd.setCellValueFactory(new PropertyValueFactory<>("id_commande"));
         col_datecmd.setCellValueFactory(new PropertyValueFactory<>("date_commande"));
         col_mtcmd.setCellValueFactory(new PropertyValueFactory<>("montant"));
+        col_idcl.setCellValueFactory(new PropertyValueFactory<>("id_client"));
         tv_cmd_client.setItems(list);
     }
     @FXML
@@ -92,7 +97,8 @@ public class ListCommandeAdminController implements Initializable {
         col_idcmd_lc.setCellValueFactory(new PropertyValueFactory<>("id_commande"));
         col_idpr_lc.setCellValueFactory(new PropertyValueFactory<>("id_produit"));
         col_nompr_lc.setCellValueFactory(new PropertyValueFactory<>("nom_produit") );
-        col_qtecmd_lc.setCellValueFactory(new PropertyValueFactory<>("quantite_commande") );     
+        col_qtecmd_lc.setCellValueFactory(new PropertyValueFactory<>("quantite_commande") );
+        col_nomcl.setCellValueFactory(new PropertyValueFactory<>("nom_client") );
         tv_lc_client.setItems(list);
         
     }

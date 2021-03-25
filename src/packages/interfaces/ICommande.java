@@ -13,13 +13,14 @@ import packages.entities.Produit;
 
 public interface ICommande {
     
-    public void ajouterCommande(Commande c);
-    public void ajouterProduitCommande(int idc, int idp, LigneCommande lc);
+    public void ajouterCommande(Commande c, int idcl);
+    public void ajouterProduitCommande(int idc, int idp, LigneCommande lc, int idcl);
     public void modifierCommande(Commande c, int i);
     public void modifierProduitCommande(int idp,LigneCommande lc, int i);
     public void supprimerCommande(int i);
     public void supprimerProduitCommande(int i);
     public List<Commande> afficherCommandes();
+    public List<Commande> afficherCommandesClient(int idcl);
     public List<LigneCommande> afficherProduitCommandes(int idc);
     public double calculerMontant (int idc , int idp);
     public void updateMontant(double mt,int idc);

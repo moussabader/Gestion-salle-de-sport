@@ -24,10 +24,10 @@ import packages.tools.MyConnection;
 public class CommandeCRUD implements ICommande{
 
     @Override
-    public void ajouterCommande(Commande c) {
+    public void ajouterCommande(Commande c,int idcl) {
         try{
-        String req = "INSERT INTO commande (date_commande)" 
-                + "VALUES (?)";
+        String req = "INSERT INTO commande (date_commande,id_client)" 
+                + "VALUES (?,?)";
         
         PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
         
@@ -35,6 +35,7 @@ public class CommandeCRUD implements ICommande{
         Date sqldate = Date.valueOf(date);
         
         pst.setDate(1, sqldate);
+        pst.setInt(2, idcl);
         pst.executeUpdate();
         System.out.println("Commande ajoutée");
         
@@ -66,7 +67,7 @@ public class CommandeCRUD implements ICommande{
         
 
     @Override
-    public void ajouterProduitCommande(int idc, int idp, LigneCommande lc) {
+    public void ajouterProduitCommande(int idc, int idp, LigneCommande lc, int idcl) {
     
         List<Produit> lp = new ArrayList<>();
         try {
@@ -74,6 +75,7 @@ public class CommandeCRUD implements ICommande{
         String req = "SELECT id_commande FROM commande WHERE date_commande="+sqldate;
         Statement st = MyConnection.getInstance().getCnx().prepareStatement(req);
         ResultSet res = st.executeQuery(req);*/
+            
             String req1 = "SELECT nom_produit FROM produit WHERE id_produit=" + idp;
             Statement st1 = MyConnection.getInstance().getCnx().createStatement();
             ResultSet rs = st1.executeQuery(req1);
@@ -83,17 +85,30 @@ public class CommandeCRUD implements ICommande{
                 lp.add(p);
             }
             String nomp = lp.get(0).getNom_produit();
-            String req2 = "INSERT INTO lignecommande (id_produit,quantite_commande,id_commande,nom_produit)"
-                    + "VALUES (?,?,?,?)";
-            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req2);
+            
+            String req2 = "SELECT nom_client, prenom_client FROM client WHERE id_client=" + idcl;
+            Statement st2 = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs2 = st2.executeQuery(req2);
+            while (rs2.next()) {
+                String nom = rs2.getString("nom_client");
+                String prenom = rs2.getString("prenom_client");
+                lc.setNom_client(nom+" "+prenom);
+            }
+            String nomcl = lc.getNom_client();
+            
+            String req3 = "INSERT INTO lignecommande (id_produit,quantite_commande,id_commande,nom_produit,nom_client)"
+                    + "VALUES (?,?,?,?,?)";
+            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req3);
             pst.setInt(1, idp);
             pst.setInt(2, lc.getQuantite_commande());
             pst.setInt(3, idc);
             pst.setString(4, nomp);
+            pst.setString(5, nomcl);
             pst.executeUpdate();
             System.out.println("Ligne Commande ajoutée");
-            String req3 = "UPDATE produit SET quantite_commande=quantite_commande+? WHERE nom_produit=?";
-            PreparedStatement pst2 = MyConnection.getInstance().getCnx().prepareStatement(req3);
+            
+            String req4 = "UPDATE produit SET quantite_commande=quantite_commande+? WHERE nom_produit=?";
+            PreparedStatement pst2 = MyConnection.getInstance().getCnx().prepareStatement(req4);
             pst2.setInt(1, lc.getQuantite_commande());
             pst2.setString(2, nomp);
             pst2.executeUpdate();
@@ -198,6 +213,7 @@ public class CommandeCRUD implements ICommande{
                 Date date = rs.getDate("date_commande");
                 c.setDate_commande(date.toString());
                 c.setMontant(rs.getDouble("montant"));
+                c.setId_client(rs.getInt("id_client"));
                 commandesListe.add(c);
             }
         } catch (SQLException ex) {
@@ -219,12 +235,34 @@ public class CommandeCRUD implements ICommande{
                 lc.setId_commande(rs.getInt("id_commande"));
                 lc.setId_produit(rs.getInt("id_produit"));
                 lc.setNom_produit(rs.getString("nom_produit"));
+                lc.setNom_client(rs.getString("nom_client"));
                 lignescommandesListe.add(lc);
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return lignescommandesListe;
+    }
+    @Override
+    public List<Commande> afficherCommandesClient(int idcl) {
+    List<Commande> commandesListe = new ArrayList<>();
+        try {
+            String req = "SELECT * FROM commande WHERE id_client="+String.valueOf(idcl);
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs =  st.executeQuery(req);
+            while(rs.next()){
+                Commande c = new Commande();
+                c.setId_commande(rs.getInt("id_commande"));
+                Date date = rs.getDate("date_commande");
+                c.setDate_commande(date.toString());
+                c.setMontant(rs.getDouble("montant"));
+                c.setId_client(rs.getInt("id_client"));
+                commandesListe.add(c);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return commandesListe;
     }
 
     @Override

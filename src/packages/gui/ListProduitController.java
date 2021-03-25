@@ -54,6 +54,12 @@ public class ListProduitController implements Initializable {
     @FXML
     private Button btn_ed_pr;
     @FXML
+    private Button btn_list_cmd;
+    @FXML
+    private Button btn_add_pr;
+    @FXML
+    private Button btn_stats;
+    @FXML
     private Button btn_del_pr;
     @FXML 
     private GridPane grid_img;
@@ -203,6 +209,18 @@ public class ListProduitController implements Initializable {
                 txt_search.setText("");
             }
         });
+    }
+    public void showStats() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("StatistiquesProduit.fxml"));
+
+        try {
+            Parent root = loader.load();
+            tv_produit.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
     }
 
 }
