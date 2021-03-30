@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/AdminClientController.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/Entities/Client.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/LoginController.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/nbproject/jfx-impl.xml</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/Clientstat.fxml</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/Sms.fxml</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/Gcoach.fxml</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/AdminPage.fxml</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/MdpoublierController.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/Gusers.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/Entities/Coach.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/Mdpoublier.fxml</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/ClientstatController.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/Service/ServiceCoach.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/AdminCoachController.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/CoachstatController.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/AdminPageController.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/SmsController.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/Gclient.fxml</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/Coachstat.fxml</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/GclientController.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/Service/ServiceClient.java</file>
+            <file>file:/C:/Users/hiheb/Documents/NetBeansProjects/Gusers/src/gusers/GcoachController.java</file>
+        </group>
+    </open-files>
+</project-private>

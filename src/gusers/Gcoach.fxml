@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gusers.GcoachController">
+   <children>
+      <TextField fx:id="nco_text" layoutX="155.0" layoutY="182.0" />
+      <TextField fx:id="pc_co" layoutX="155.0" layoutY="244.0" />
+      <ComboBox fx:id="gco_combo" layoutX="154.0" layoutY="299.0" prefWidth="150.0" />
+      <Label layoutX="70.0" layoutY="186.0" text="Nom" />
+      <Label fx:id="genre_lab" layoutX="644.0" layoutY="293.0" text="Label" />
+      <Label fx:id="prenom_lab" layoutX="644.0" layoutY="235.0" text="Label" />
+      <Label fx:id="nom_lab" layoutX="644.0" layoutY="187.0" text="Label" />
+      <Label layoutX="70.0" layoutY="248.0" text="Prenom" />
+      <Label layoutX="70.0" layoutY="302.0" text="Genre" />
+      <Button layoutX="242.0" layoutY="406.0" mnemonicParsing="false" onAction="#modifierco" prefHeight="54.0" prefWidth="105.0" text="Modifier" />
+      <Button layoutX="658.0" layoutY="388.0" mnemonicParsing="false" onAction="#affiche" prefHeight="54.0" prefWidth="106.0" text="Select" />
+      <TextField fx:id="nom_text" layoutX="199.0" layoutY="42.0" opacity="0.0" />
+   </children>
+</AnchorPane>

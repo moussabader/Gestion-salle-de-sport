@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="945.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gusers.AdminPageController">
+   <children>
+      <Button layoutX="207.0" layoutY="253.0" mnemonicParsing="false" onAction="#coach" prefHeight="85.0" prefWidth="173.0" text="Gere les coachs" />
+      <Button fx:id="a" layoutX="550.0" layoutY="253.0" mnemonicParsing="false" onAction="#client" prefHeight="85.0" prefWidth="173.0" text="Gerer les Clients" />
+      <Button layoutX="829.0" layoutY="560.0" mnemonicParsing="false" onAction="#back" text="Log out" />
+   </children>
+</AnchorPane>

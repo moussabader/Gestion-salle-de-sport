@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gusers.MdpoublierController">
+   <children>
+      <TextField fx:id="id_text" layoutX="377.0" layoutY="235.0" prefHeight="47.0" prefWidth="160.0" />
+      <Label layoutX="246.0" layoutY="242.0" prefHeight="33.0" prefWidth="110.0" text="insert user login" />
+      <Button layoutX="425.0" layoutY="388.0" mnemonicParsing="false" onAction="#find" prefHeight="40.0" prefWidth="74.0" text="Valider" />
+      <ComboBox fx:id="g_combo" layoutX="377.0" layoutY="112.0" prefHeight="40.0" prefWidth="160.0" />
+      <Label layoutX="273.0" layoutY="123.0" text="Genre" />
+   </children>
+</AnchorPane>
