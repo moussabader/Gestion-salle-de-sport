@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gusers.LoginController">
+   <children>
+      <TextField fx:id="login_text" layoutX="383.0" layoutY="185.0" prefHeight="41.0" prefWidth="158.0" />
+      <Button layoutX="424.0" layoutY="385.0" mnemonicParsing="false" onAction="#login" prefHeight="42.0" prefWidth="75.0" text="Login" />
+      <CheckBox fx:id="checkpass" layoutX="556.0" layoutY="289.0" mnemonicParsing="false" onAction="#showpassword" prefHeight="18.0" prefWidth="75.0" text="Show" />
+      <PasswordField fx:id="mdp_text" layoutX="383.0" layoutY="256.0" prefHeight="42.0" prefWidth="158.0" />
+      <Hyperlink layoutX="308.0" layoutY="318.0" onAction="#mdpoublier" prefHeight="23.0" prefWidth="150.0" text="Mot de passe oublier" />
+      <Label layoutX="269.0" layoutY="190.0" prefHeight="31.0" prefWidth="58.0" text="User id " />
+      <Label layoutX="269.0" layoutY="269.0" text="Password" />
+   </children>
+</AnchorPane>

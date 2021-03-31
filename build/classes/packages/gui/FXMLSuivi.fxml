@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="496.0" prefWidth="802.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Gui.FXMLSuiviController">
+   <children>
+      <Label layoutX="524.0" layoutY="14.0" text="Suivi">
+         <font>
+            <Font name="System Italic" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="43.0" prefHeight="25.0" prefWidth="92.0" text="nom_coach :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="85.0" text="nom_client :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="167.0" text="objectifs :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="313.0" text="conseils :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomcch" layoutX="109.0" layoutY="43.0" prefHeight="25.0" prefWidth="218.0" />
+      <TextField fx:id="nomclt" layoutX="109.0" layoutY="83.0" prefHeight="25.0" prefWidth="218.0" />
+      <TextArea fx:id="objctf" layoutX="109.0" layoutY="116.0" prefHeight="130.0" prefWidth="218.0" />
+      <TextArea fx:id="cnsils" layoutX="109.0" layoutY="258.0" prefHeight="130.0" prefWidth="218.0" />
+      <TableView fx:id="tablesuivi" layoutX="342.0" layoutY="66.0" prefHeight="335.0" prefWidth="438.0">
+        <columns>
+          <TableColumn fx:id="col1Id" prefWidth="76.0" text="Nom_Coach" />
+          <TableColumn fx:id="col2Id" prefWidth="81.0" text="Nom_Client" />
+            <TableColumn fx:id="col3Id" prefWidth="148.0" text="Objectifs" />
+            <TableColumn fx:id="col4Id" prefWidth="132.0" text="Conseils" />
+        </columns>
+      </TableView>
+      <Button layoutX="9.0" layoutY="420.0" mnemonicParsing="false" onAction="#ajouterSuivi" prefHeight="38.0" prefWidth="105.0" text="Ajouter">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="141.0" layoutY="420.0" mnemonicParsing="false" onAction="#supprimerSuivi" prefHeight="38.0" prefWidth="105.0" text="Supprimer">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="275.0" layoutY="420.0" mnemonicParsing="false" onAction="#modifierSuivi" prefHeight="38.0" prefWidth="105.0" text="Modifier">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="600.0" layoutY="434.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="38.0" prefWidth="105.0" text="Retour">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

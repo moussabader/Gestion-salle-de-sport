@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ayoub.EvenmentController">
+   <children>
+      <ImageView fitHeight="441.0" fitWidth="643.0">
+         <image>
+            <Image url="@../../../../../Downloads/159045903_477959850313601_6078405675442023320_n.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="124.0" fitWidth="79.0" layoutX="534.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="valider" layoutX="474.0" layoutY="182.0" mnemonicParsing="false" onAction="#ajouter_event" prefHeight="25.0" prefWidth="67.0" text="Valider" />
+      <Label layoutX="142.0" layoutY="85.0" text="Name" textFill="#fce4e4" />
+      <Label layoutX="134.0" layoutY="186.0" text="Phone Number" textFill="#fce4e4" />
+      <Label layoutX="142.0" layoutY="226.0" text="Date" textFill="#fce4e4" />
+      <Label layoutX="142.0" layoutY="135.0" text="Type" textFill="#fce4e4" />
+      <Label layoutX="142.0" layoutY="272.0" text="Location" textFill="#fce4e4" />
+      <TextField fx:id="nom" layoutX="226.0" layoutY="81.0" />
+      <TextField fx:id="type" layoutX="226.0" layoutY="131.0" />
+      <TextField fx:id="tel" layoutX="226.0" layoutY="182.0" />
+      <TextField fx:id="date" layoutX="226.0" layoutY="222.0" />
+      <TextField fx:id="location" layoutX="226.0" layoutY="268.0" />
+      <Text fx:id="show" layoutX="442.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="116.13671875" />
+      <Button fx:id="consulter" layoutX="474.0" layoutY="222.0" mnemonicParsing="false" onAction="#consulter_event" text="Consulter" />
+      <Label layoutX="112.0" layoutY="38.0" prefHeight="17.0" prefWidth="378.0" text="           AJOUTER VOTRE EVENEMENT" textAlignment="CENTER" textFill="#0514e4">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ayoub.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="421.0" fitWidth="620.0">
+         <image>
+            <Image url="@../../../../../Downloads/159045903_477959850313601_6078405675442023320_n.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="99.0" fitWidth="67.0" layoutX="539.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="events" layoutX="212.0" layoutY="175.0" mnemonicParsing="false" onAction="#go_events" prefHeight="34.0" prefWidth="176.0" text="EVENEMENTS" />
+      <Button fx:id="tickets" layoutX="215.0" layoutY="246.0" mnemonicParsing="false" onAction="#consulter_tickets" prefHeight="34.0" prefWidth="176.0" text="TICKET" />
+   </children>
+</AnchorPane>

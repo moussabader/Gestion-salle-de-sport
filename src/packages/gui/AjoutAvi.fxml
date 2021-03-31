@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AJt" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222f3e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db1.gui.AjoutAviController">
+   <children>
+      <Label layoutX="193.0" layoutY="30.0" prefHeight="54.0" prefWidth="249.0" style="-fx-text-fill: #FEFEFE;" text="Ajouter Avis">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font></Label>
+      <Label layoutX="83.0" layoutY="147.0" style="-fx-text-fill: #FEFEFE;" text="Titre">
+         <font>
+            <Font size="28.0" />
+         </font></Label>
+      <Label layoutX="27.0" layoutY="206.0" style="-fx-text-fill: #FEFEFE;" text="Commentaire">
+         <font>
+            <Font size="29.0" />
+         </font></Label>
+      <Label layoutX="70.0" layoutY="284.0" style="-fx-text-fill: #FEFEFE;" text="Niveau" />
+      <TextField fx:id="txtt" layoutX="207.0" layoutY="142.0" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #f5f6fa;" />
+      <TextArea fx:id="txtc" layoutX="208.0" layoutY="200.0" prefHeight="72.0" prefWidth="200.0" />
+      <ComboBox fx:id="cbn" layoutX="208.0" layoutY="290.0" prefHeight="31.0" prefWidth="200.0" />
+      <Button layoutX="387.0" layoutY="360.0" mnemonicParsing="false" onAction="#insererAvi" prefHeight="31.0" prefWidth="123.0" style="-fx-background-color: #f5f6fa;" text="Ajouter" />
+      <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="389.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/Plus_icon-icons.com_71848.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="com" layoutX="225.0" layoutY="345.0" prefWidth="150.0" />
+      <Label layoutX="62.0" layoutY="350.0" prefHeight="21.0" prefWidth="84.0" style="-fx-text-fill: #FEFEFE;" text="Produit" />
+      <Label fx:id="nom" layoutX="273.0" layoutY="94.0" text="Label" />
+   </children>
+</AnchorPane>

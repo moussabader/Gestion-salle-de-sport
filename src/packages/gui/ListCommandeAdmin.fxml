@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="463.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListCommandeAdminController">
+   <children>
+      <TableView fx:id="tv_cmd_client" layoutX="24.0" layoutY="64.0" onMouseClicked="#showCommandeDetails" prefHeight="259.0" prefWidth="281.0">
+        <columns>
+          <TableColumn fx:id="col_idcmd" minWidth="1.0" prefWidth="39.0" text="N°" />
+          <TableColumn fx:id="col_datecmd" prefWidth="124.0" text="Date Commande" />
+            <TableColumn fx:id="col_mtcmd" minWidth="5.0" prefWidth="114.0" text="Montant Total" />
+            <TableColumn fx:id="col_idcl" minWidth="0.0" prefWidth="0.0" text="ID Client" visible="false" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tv_lc_client" layoutX="356.0" layoutY="64.0" prefHeight="259.0" prefWidth="354.0">
+        <columns>
+          <TableColumn fx:id="col_idcmd_lc" prefWidth="94.0" text="ID Commande" visible="false" />
+          <TableColumn fx:id="col_idpr_lc" prefWidth="87.0" text="ID Produit" visible="false" />
+            <TableColumn fx:id="col_nompr_lc" prefWidth="124.0" text="Nom Produit" />
+            <TableColumn fx:id="col_qtecmd_lc" prefWidth="72.0" text="Quantité" />
+            <TableColumn fx:id="col_nomcl" prefWidth="155.0" text="Nom Client" />
+        </columns>
+      </TableView>
+      <Separator layoutX="329.0" layoutY="64.0" orientation="VERTICAL" prefHeight="259.0" prefWidth="0.0" />
+      <Button fx:id="btn_del_cmd" layoutX="302.0" layoutY="342.0" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="25.0" prefWidth="109.0" text="Livrer" />
+      <Label layoutX="67.0" layoutY="20.0" text="Liste des Commandes">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="432.0" layoutY="20.0" text="Détails des Commandes">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_listpr" layoutX="302.0" layoutY="386.0" mnemonicParsing="false" onAction="#afficherListeProduits" text="Liste des Produits" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="Controller.DétailsCoursController">
+   <children>
+      <Label layoutX="217.0" layoutY="39.0" text="Détails Cours">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="124.0" text="Nom">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="200.0" text="Description">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="291.0" text="Nom Coach">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="nom" layoutX="300.0" layoutY="124.0" text="Label" />
+      <Label fx:id="des" layoutX="300.0" layoutY="200.0" text="Label" />
+      <Label fx:id="nomcoa" layoutX="300.0" layoutY="291.0" text="Label" />
+      <Button layoutX="238.0" layoutY="346.0" mnemonicParsing="false" onAction="#reserver" text="Reserver" />
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
