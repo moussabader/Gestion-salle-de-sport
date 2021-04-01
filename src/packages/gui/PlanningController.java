@@ -37,10 +37,10 @@ public class PlanningController implements Initializable {
     private TableColumn<Cours, String> description;
     @FXML
     private TableColumn<Cours, String> caoch;
-
-        private ObservableList<Cours> CoursData = FXCollections.observableArrayList();
-        public static int idL = 0 ;
-        ReservationService cs =  new ReservationService();
+    
+    private ObservableList<Cours> CoursData = FXCollections.observableArrayList();
+    public static int idL = 0 ;
+    ReservationService cs =  new ReservationService();
        
 
     /**
@@ -50,6 +50,7 @@ public class PlanningController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         List<Cours> listCours= new ArrayList<Cours>();
         listCours = (List<Cours>) cs.getAllCoursReserver(1);
+        
         CoursData.clear();
         CoursData.addAll(listCours);
         table.setItems(CoursData);

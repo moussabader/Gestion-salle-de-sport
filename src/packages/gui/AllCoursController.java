@@ -81,9 +81,9 @@ public class AllCoursController implements Initializable {
         caoch.setCellValueFactory(
             new PropertyValueFactory<>("nomCoach")
         );
-        note.setCellValueFactory(
+        /*note.setCellValueFactory(
             new PropertyValueFactory<>("note")
-        );
+        );*/
         
     }    
 

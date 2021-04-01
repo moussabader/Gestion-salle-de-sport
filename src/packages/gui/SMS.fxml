@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db1.gui.SMSController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.SMSController">
    <children>
       <TextField fx:id="tet" layoutX="234.0" layoutY="97.0" />
       <Button fx:id="sm" layoutX="268.0" layoutY="169.0" mnemonicParsing="false" onAction="#smssms" text="Button" />

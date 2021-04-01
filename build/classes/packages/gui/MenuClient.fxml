@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="694.0" style="-fx-background-color: #e2ffe1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.MenuClientController">
+   <children>
+      <ImageView fitHeight="163.0" fitWidth="165.0" layoutX="22.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/—Pngtree—vector%20users%20icon_3767867.png" />
+         </image>
+      </ImageView>
+      <MenuBar fx:id="musers" layoutX="74.0" layoutY="195.0" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
+        <menus>
+          <Menu mnemonicParsing="false" text="Profil">
+            <items>
+                  <MenuItem fx:id="clients1" mnemonicParsing="false" onAction="#interfaceProfilClient" text="Gérer Profil" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="122.0" fitWidth="126.0" layoutX="203.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/favpng_inventory-management-software-inventory-control-download.png" />
+         </image>
+      </ImageView>
+      <MenuBar layoutX="234.0" layoutY="195.0" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
+         <menus>
+            <Menu mnemonicParsing="false" text="Produits">
+               <items>
+                  <MenuItem fx:id="add_produits1" mnemonicParsing="false" onAction="#interfaceListProduitsClient" text="Liste des Produits" />
+                  <MenuItem fx:id="list_produits1" mnemonicParsing="false" onAction="#interfaceAjoutCommande" text="Ajouter une Commande" />
+                  <MenuItem fx:id="list_cmd1" mnemonicParsing="false" onAction="#interfaceListCommandes" text="Liste des Commandes" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <ImageView fitHeight="136.0" fitWidth="134.0" layoutX="350.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/favpng_physical-fitness-physical-exercise-fitness-centre-clip-art.png" />
+         </image>
+      </ImageView>
+      <MenuBar layoutX="386.0" layoutY="195.0" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
+         <menus>
+            <Menu mnemonicParsing="false" text="Cours">
+               <items>
+                  <MenuItem fx:id="list_cours1" mnemonicParsing="false" onAction="#interfaceListCoursClient" text="Liste des cours " />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <ImageView fitHeight="134.0" fitWidth="143.0" layoutX="516.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/favpng_stock-photography-royalty-free-clip-art.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="134.0" fitWidth="122.0" layoutX="42.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/reservation-icon-29769.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="134.0" fitWidth="134.0" layoutX="198.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/favpng_public-relations-marketing-advertising-campaign-management.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="98.0" fitWidth="193.0" layoutX="332.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/favpng_youtube-dislike-facebook-like-button.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="122.0" fitWidth="100.0" layoutX="534.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/favpng_sauna-icon-claim-icon.png" />
+         </image>
+      </ImageView>
+      <MenuBar layoutX="211.0" layoutY="405.0" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
+         <menus>
+            <Menu mnemonicParsing="false" text="Evénements">
+               <items>
+                  <MenuItem fx:id="add_event1" mnemonicParsing="false" onAction="#interfaceAjoutTicket" text="Ajouter une ticket" />
+                  <MenuItem fx:id="list_event1" mnemonicParsing="false" onAction="#interfaceListEventClient" text="Liste des événements" />
+                  <MenuItem fx:id="list_ticket1" mnemonicParsing="false" onAction="#interfaceListTicketsClient" text="Liste des tickets" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <MenuBar layoutX="390.0" layoutY="405.0" prefHeight="30.0" prefWidth="61.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
+         <menus>
+            <Menu mnemonicParsing="false" text="Avis">
+               <items>
+                  <MenuItem fx:id="list_avis1" mnemonicParsing="false" onAction="#interfaceAjoutAvis" text="Ajouter avis" />
+                  <MenuItem fx:id="list_avis11" mnemonicParsing="false" onAction="#interfaceListAvis" text="Consulter les avis" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <MenuBar layoutX="526.0" layoutY="405.0" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
+         <menus>
+            <Menu mnemonicParsing="false" text="Réclamations">
+               <items>
+                  <MenuItem fx:id="lis_reclamation1" mnemonicParsing="false" onAction="#interfaceAjoutReclamation" text="Ajouter une réclamation" />
+                  <MenuItem fx:id="lis_reclamation11" mnemonicParsing="false" onAction="#interfaceListReclamation" text="Consulter les réclamations" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Button fx:id="btn_logout" layoutX="286.0" layoutY="499.0" mnemonicParsing="false" onAction="#Logout" style="-fx-background-color: #0096C9;" text="Se Déconnecter" textFill="WHITE">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="15.0" />
+         </font></Button>
+      <Button layoutX="556.0" layoutY="195.0" mnemonicParsing="false" onAction="#interfacelistsuivi" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: #0096C9;" text="Suivi" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button layoutX="60.0" layoutY="405.0" mnemonicParsing="false" onAction="#interfaceAjoutReservation" prefHeight="0.0" prefWidth="100.0" style="-fx-background-color: #0096C9;" text="Réservations" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #222f3e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db1.gui.SupprimerModifierAvisController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #222f3e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.SupprimerModifierAvisController">
    <children>
       <Label layoutX="138.0" layoutY="25.0" style="-fx-text-fill: #FEFEFE;" text="Modifier Avis" />
       <Button fx:id="btmodif" layoutX="247.0" layoutY="431.0" mnemonicParsing="false" onAction="#ModifButton" prefHeight="31.0" prefWidth="111.0" text="Modifier" />

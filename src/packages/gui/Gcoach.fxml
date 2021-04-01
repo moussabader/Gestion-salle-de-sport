@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gusers.GcoachController">
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.GcoachController">
    <children>
       <TextField fx:id="nco_text" layoutX="155.0" layoutY="182.0" />
       <TextField fx:id="pc_co" layoutX="155.0" layoutY="244.0" />

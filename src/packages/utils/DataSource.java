@@ -19,7 +19,7 @@ public class DataSource {
     public String user= "root" ;
     public String password = "";
     //pidev nom de base de donnée
-    public String url ="jdbc:mysql://localhost:3306/courspidev";
+    public String url ="jdbc:mysql://localhost:3306/sweatfitness";
     
     private DataSource()
     {

@@ -84,7 +84,7 @@ public static int id  ;
         if (test==1){
         FXMLLoader loader = new FXMLLoader();
         
-        loader.setLocation(getClass().getResource("AdminPage.fxml"));
+        loader.setLocation(getClass().getResource("MenuAdmin.fxml"));
         
         Parent root = loader.load();
         login_text.getScene().setRoot(root);
@@ -93,12 +93,12 @@ public static int id  ;
                                                      .graphic(null)
                                                      .hideAfter(javafx.util.Duration.seconds(5) )
                                                       .position(Pos.TOP_LEFT) ;
-      notificationBuilder.show();
+        notificationBuilder.show();
         
         }
         else if (test==2) {FXMLLoader loader = new FXMLLoader();
         
-        loader.setLocation(getClass().getResource("Gclient.fxml"));
+        loader.setLocation(getClass().getResource("MenuClient.fxml"));
         
         Parent root = loader.load();
         login_text.getScene().setRoot(root);

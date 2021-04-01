@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/AddReclamationController.java</file>
-            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/entities/Produit.java</file>
-            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/entities/SmsSender.java</file>
-            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/entities/Cours.java</file>
-            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/AjouterCommandeController.java</file>
-            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/AdminConsultAvisController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/menu.css</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/Home.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/MenuClient.fxml</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/MenuClientController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/MenuAdminController.java</file>
         </group>
     </open-files>
 </project-private>

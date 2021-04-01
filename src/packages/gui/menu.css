@@ -1,0 +1,27 @@
+
+
+
+.menu-bar 
+{
+    -fx-background-color: #0096C9;
+    
+}
+
+
+.menu .label
+{
+    -fx-text-fill: White;
+    -fx-background-color: #0096C9;
+    -fx-font-size: 14;
+}
+
+.menu-item .label 
+{
+    -fx-background-color: White;
+    -fx-text-fill: Black;
+}
+
+.menu-item:hover:selected .label:hover:selected, .menu-item:focused:selected .label:hover:selected {
+    -fx-background-color: #0096C9;
+    -fx-text-fill: White;
+}

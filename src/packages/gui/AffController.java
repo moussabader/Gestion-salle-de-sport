@@ -225,7 +225,7 @@ stage.show();
    
      public Connection getConnection(){
         
-        String url = "jdbc:mysql://localhost:3306/geeks";
+        String url = "jdbc:mysql://localhost:3306/sweatfitness";
         String login="root";
         String pwd="";
         try{

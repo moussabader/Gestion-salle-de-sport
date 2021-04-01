@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
@@ -34,6 +35,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import packages.entities.LigneCommande;
 import packages.entities.Produit;
 import packages.tools.MyConnection;
@@ -80,6 +82,10 @@ public class StatistiquesProduitController implements Initializable {
         }
         
         chart.setData(pieChartData);
+        FadeTransition transition = new FadeTransition(Duration.seconds(3),chart);
+        transition.setFromValue(0);
+        transition.setToValue(1);
+        transition.play();
         
         //System.out.println(chart.getData());
         chart.getData().sort(new Comparator<Data> () {

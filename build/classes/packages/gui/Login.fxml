@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gusers.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.LoginController">
    <children>
       <TextField fx:id="login_text" layoutX="383.0" layoutY="185.0" prefHeight="41.0" prefWidth="158.0" />
       <Button layoutX="424.0" layoutY="385.0" mnemonicParsing="false" onAction="#login" prefHeight="42.0" prefWidth="75.0" text="Login" />

@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222f3e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db1.gui.AddReclamationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222f3e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AddReclamationController">
    <children>
       <Label layoutX="45.0" layoutY="167.0" style="-fx-text-fill: #FEFEFE;" text="Description" />
       <TextArea fx:id="tfdescription" layoutX="169.0" layoutY="167.0" prefHeight="143.0" prefWidth="398.0" />

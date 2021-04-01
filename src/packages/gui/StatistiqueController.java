@@ -61,7 +61,7 @@ public class StatistiqueController implements Initializable {
 
  
        try {
-            String requete = "SELECT cours.nom, Count(id_cours) AS Nombre_de_Fois FROM `cours` INNER JOIN reservation ON cours.id=reservation.id_cours  GROUP BY cours.nom";
+            String requete = "SELECT cours.nom, Count(*) AS Nombre_de_Fois FROM `cours` INNER JOIN reservations ON cours.id=reservations.id_cours  GROUP BY cours.nom";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(requete);
            

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gusers.MdpoublierController">
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.MdpoublierController">
    <children>
       <TextField fx:id="id_text" layoutX="377.0" layoutY="235.0" prefHeight="47.0" prefWidth="160.0" />
       <Label layoutX="246.0" layoutY="242.0" prefHeight="33.0" prefWidth="110.0" text="insert user login" />

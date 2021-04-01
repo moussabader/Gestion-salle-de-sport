@@ -48,7 +48,7 @@ public class ReservationService {
         try{
         String req ;
         
-        req="INSERT INTO `reservation`(`id_user`, `id_cours`) VALUES (?,?)";
+        req="INSERT INTO `reservations`(`id_user`, `id_cours`) VALUES (?,?)";
         PreparedStatement res=cnx.prepareStatement(req);
         
         res.setInt(1, r.getIduser());
@@ -75,7 +75,7 @@ public class ReservationService {
         Cours u = new Cours();
         int count = 0;
            
-        String requete="SELECT * FROM `cours` INNER JOIN reservation ON cours.id=reservation.id WHERE reservation.id_user="+id;
+        String requete="SELECT * FROM `cours` INNER JOIN reservations ON cours.id=reservations.id WHERE reservations.id_user="+id;
         try{
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(requete);
@@ -109,7 +109,7 @@ public class ReservationService {
         List<Reservation> list = new ArrayList<Reservation>();
         int count =0;
         
-        String requete="select * from reservation where id_cours="+id;
+        String requete="select * from reservations where id_cours="+id;
          try{
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(requete);
@@ -148,7 +148,7 @@ public class ReservationService {
             List<Cours> list = new ArrayList<Cours>();
         int count =0;
         
-        String requete="SELECT * FROM `cours` INNER JOIN reservation ON cours.id=reservation.id_cours WHERE reservation.id_user="+id;
+        String requete="SELECT * FROM `cours` INNER JOIN reservations ON cours.id=reservations.id_cours WHERE reservations.id_user="+id;
          try{
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(requete);
@@ -187,7 +187,7 @@ public class ReservationService {
         try {
             
             Statement st=cnx.createStatement();
-            String req= "DELETE FROM `reservation` WHERE `id_user`='"+id+"'AND `id_cours`="+idc;
+            String req= "DELETE FROM `reservations` WHERE `id_user`='"+id+"'AND `id_cours`="+idc;
             st.executeUpdate(req);
             return true;
         } catch (SQLException ex) {

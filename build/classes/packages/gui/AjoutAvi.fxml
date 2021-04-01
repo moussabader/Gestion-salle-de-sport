@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AJt" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222f3e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.db1.gui.AjoutAviController">
+<AnchorPane id="AnchorPane" fx:id="AJt" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222f3e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AjoutAviController">
    <children>
       <Label layoutX="193.0" layoutY="30.0" prefHeight="54.0" prefWidth="249.0" style="-fx-text-fill: #FEFEFE;" text="Ajouter Avis">
          <font>

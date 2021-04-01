@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="624.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gusers.CoachstatController">
+<AnchorPane id="AnchorPane" prefHeight="624.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.CoachstatController">
    <children>
       <PieChart fx:id="pie" layoutX="129.0" layoutY="87.0" prefHeight="417.0" prefWidth="517.0" />
       <Button layoutX="841.0" layoutY="546.0" mnemonicParsing="false" onAction="#Back" prefHeight="40.0" prefWidth="65.0" text="Back" />
