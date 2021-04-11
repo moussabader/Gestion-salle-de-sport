@@ -7,29 +7,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ModifierCoursController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom left, #6699ff 10%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ModifierCoursController">
    <children>
-      <Label layoutX="226.0" layoutY="40.0" text="Ajout Cours">
+      <Label layoutX="219.0" layoutY="23.0" text="Modifier Cours">
          <font>
-            <Font name="System Bold" size="19.0" />
+            <Font name="Book Antiqua Bold Italic" size="24.0" />
          </font>
       </Label>
       <Label layoutX="73.0" layoutY="131.0" text="Nom ">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Label>
       <Label layoutX="73.0" layoutY="190.0" text="Description">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Label>
       <Label layoutX="73.0" layoutY="240.0" text="Nom Coach">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="274.0" layoutY="309.0" mnemonicParsing="false" onAction="#Ajouter" text="Modifier" />
+      <Button layoutX="274.0" layoutY="309.0" mnemonicParsing="false" onAction="#Ajouter" text="Modifier">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
       <TextField fx:id="nom" layoutX="227.0" layoutY="129.0" />
       <TextField fx:id="des" layoutX="227.0" layoutY="188.0" />
       <TextField fx:id="nomCoach" layoutX="227.0" layoutY="238.0" />

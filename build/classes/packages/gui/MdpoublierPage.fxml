@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="351.0" prefWidth="509.0" style="-fx-background-color: linear-gradient(to top right, #6699ff 10%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.MdpoublierPageController">
+   <children>
+      <Button fx:id="mail" layoutX="79.0" layoutY="157.0" mnemonicParsing="false" onAction="#Mail" prefHeight="55.0" prefWidth="98.0" text="Mail">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="18.0" />
+         </font></Button>
+      <Button fx:id="sms" layoutX="333.0" layoutY="157.0" mnemonicParsing="false" onAction="#Sms" prefHeight="55.0" prefWidth="98.0" text="SMS">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="18.0" />
+         </font></Button>
+      <Button layoutX="213.0" layoutY="245.0" mnemonicParsing="false" onAction="#back" prefHeight="28.0" prefWidth="84.0" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Label layoutX="128.0" layoutY="80.0" text="Choisir le mode de récupération">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

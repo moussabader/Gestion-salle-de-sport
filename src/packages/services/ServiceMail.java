@@ -23,8 +23,8 @@ public class ServiceMail {
 
     public static void send(String to, String subject, String text) {
 
-        final String username = "rzouga20003@gmail.com";
-        final String password = "rzouganeme20003720.fr";
+        final String username = "mariem.benghozlen@esprit.tn";
+        final String password = "181JFT1397";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

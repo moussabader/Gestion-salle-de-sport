@@ -105,12 +105,7 @@ public class EdittController implements Initializable {
     private void back(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("show_ticket.fxml"));
-            Stage stage = (Stage) update.getScene().getWindow();
-            stage.close();
-            Scene scene = new Scene(root);
-            
-            stage.setScene(scene);
-            stage.show();
+            nom_event.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }

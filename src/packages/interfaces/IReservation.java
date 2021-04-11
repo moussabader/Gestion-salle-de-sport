@@ -20,6 +20,6 @@ public interface IReservation {
     public void updateReservation(int nomid , Reservation r);
     public void updateEtat(int id ,Reservation t);
     public void deleteReservation(int id);
-    public ObservableList<Reservation>Try()throws SQLException;
+    
     
 }

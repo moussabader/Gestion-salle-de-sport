@@ -113,12 +113,12 @@ Connection cnx;
     public void modifiermdp (Coach c) {
     
         try {
-            String requete = "update coach set mdp_co =? where ? = nom_co";
+            String requete = "update coach set mdp_co =? where ? = login_co";
             PreparedStatement pre = cnx.prepareStatement(requete);
 
             
             pre.setString(1, c.getMdp_co());
-            pre.setString(2,c.getNom_co());
+            pre.setString(2,c.getLogin_co());
 
             pre.executeUpdate();
             System.out.println("Client Updated !!!");

@@ -22,7 +22,7 @@ import javax.mail.internet.MimeMultipart;
 
 /**
  *
- * @author aymen
+ * @author hazar
  */
 public class mail {
      public static void envoi(String rev,String Subjet , String Text) throws Exception
@@ -39,11 +39,11 @@ public class mail {
    {
        if ((wa9t < 07 ) || (wa9t > 18))
        {
-          new Email("aymen.ouerghui@esprit.tn","aymen98940976", rev, Subjet, "<h1 style=\"color: green;\" > Bonsoir, \n </h1> <h2 style=\"color: green;\" >"+Text+"\n </h2> <h1 style=\"color: green;\"> ,Merci pour votre confiance. </h1>"); // Send a message
+          new Email("mariem.benghozlen@esprit.tn","181JFT1397", rev, Subjet, "<h1 style=\"color: green;\" > Bonsoir, \n </h1> <h2 style=\"color: green;\" >"+Text+"\n </h2> <h1 style=\"color: green;\"> ,Merci pour votre confiance. </h1>"); // Send a message
 
        }
        else 
-          new Email("aymen.ouerghui@esprit.tn","aymen98940976", rev, Subjet, "<h1 style=\"color: green;\"> Bonsoir, \n </h1> <h2 style=\"color: green;\" >"+Text+"\n </h2> <h1 style=\"color: green;\"> ,Merci pour votre confiance. </h1>");
+          new Email("mariem.benghozlen@esprit.tn","181JFT1397", rev, Subjet, "<h1 style=\"color: green;\"> Bonsoir, \n </h1> <h2 style=\"color: green;\" >"+Text+"\n </h2> <h1 style=\"color: green;\"> ,Merci pour votre confiance. </h1>");
    }
     }
         

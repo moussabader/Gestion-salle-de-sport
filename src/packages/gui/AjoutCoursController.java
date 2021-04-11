@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +27,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -55,12 +57,14 @@ public class AjoutCoursController implements Initializable {
     File pDir;
     File pfile;
     String lien;
+    @FXML
+    private DatePicker datec;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-   
+        
            c = (int) (Math.random() * (300000 - 2 + 1)) + 2;
         pDir = new File("src/img/Profile" + c + ".jpg");
         lien = "Profile" + c + ".jpg";
@@ -70,7 +74,7 @@ public class AjoutCoursController implements Initializable {
 
     @FXML
     private void Ajouter(ActionEvent event) {
-      
+        
         CoursService cs = new CoursService();
         Cours c = new Cours();
    
@@ -89,18 +93,24 @@ public class AjoutCoursController implements Initializable {
        notificationBuilder.show();
           }
                   else{
+            
         copier(pfile,pDir);
+                Date dd=  new java.sql.Date(  new Date(datec.getEditor().getText()).getTime());
+
         c.setNom(nom.getText());
         c.setNomCoach(nomCoach.getText());
         c.setDescription(des.getText());
         c.setImage(lien);
+        c.setDatec(dd);
         cs.AjoutCours(c);
-      
+        SmsSender a= new SmsSender();
+      a.send("nouvelle cours ajouter:,"+nom.getText()+"allez vite reserver","b");
+        
         
          try {
             Parent root;
             
-            root = FXMLLoader.load(getClass().getResource("/GUI/AllCours.fxml"));
+            root = FXMLLoader.load(getClass().getResource("AllCours.fxml"));
             Stage myWindow = (Stage)nom.getScene().getWindow();
             Scene sc = new Scene(root);
             myWindow.setScene(sc);
@@ -110,8 +120,7 @@ public class AjoutCoursController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AjoutCoursController.class.getName()).log(Level.SEVERE, null, ex);
         }
-                  } 
-     
+                  }         
     }
     
     
@@ -155,6 +164,20 @@ public class AjoutCoursController implements Initializable {
             img.setImage(image);
     }
         
+    }
+    @FXML
+    private void interfaceMenuAdmin(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            nom.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

@@ -7,21 +7,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ClientCoursController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #6699ff 40%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ClientCoursController">
    <children>
-      <TableView fx:id="table" layoutX="68.0" layoutY="88.0" prefHeight="200.0" prefWidth="479.0">
+      <TableView fx:id="table" layoutX="68.0" layoutY="88.0" prefHeight="230.0" prefWidth="479.0">
         <columns>
           <TableColumn fx:id="nom" prefWidth="127.0" text="Nom" />
           <TableColumn fx:id="description" prefWidth="147.0" text="Description" />
             <TableColumn fx:id="caoch" prefWidth="204.0" text="Coach" />
         </columns>
       </TableView>
-      <Label layoutX="254.0" layoutY="42.0" text="Tous les  Cours">
+      <Label layoutX="229.0" layoutY="27.0" text="Tous les Cours">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="Book Antiqua Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="274.0" layoutY="329.0" mnemonicParsing="false" onAction="#Detail" text="Details" />
-      <Label fx:id="nbr" layoutX="488.0" layoutY="34.0" text="Label" />
+      <Button layoutX="274.0" layoutY="329.0" mnemonicParsing="false" onAction="#Detail" text="Details">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Label fx:id="nbr" layoutX="488.0" layoutY="34.0" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#interfaceMenuClient" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

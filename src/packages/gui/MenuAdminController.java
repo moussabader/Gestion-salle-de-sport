@@ -33,14 +33,7 @@ public class MenuAdminController implements Initializable {
 
     @FXML
     private MenuBar menu;
-    @FXML
-    private Menu users;
-    @FXML
-    private MenuItem add_produits;
-    @FXML
-    private MenuItem list_produits;
-    @FXML
-    private MenuItem list_cmd;
+   
     /**
      * Initializes the controller class.
      */
@@ -141,19 +134,17 @@ public class MenuAdminController implements Initializable {
 
         
     }
-    public void interfacePlanning() {
+    /*public void interfacePlanning() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Planing.fxml"));
         
-        try {
+        
 
             Parent root = loader.load();
             menu.getScene().setRoot(root);
             
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+        
 
-    }
+    }*/
     public void interfaceStatCours() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("statistique.fxml"));
         
@@ -206,7 +197,7 @@ public class MenuAdminController implements Initializable {
         }
 
     }
-    public void interfaceListTicket() {
+    /*public void interfaceListTicket() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("show_ticket.fxml"));
         
         try {
@@ -218,7 +209,7 @@ public class MenuAdminController implements Initializable {
             System.out.println(ex.getMessage());
         }
 
-    }
+    }*/
     public void interfaceListAvis() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminConsultAvis.fxml"));
         

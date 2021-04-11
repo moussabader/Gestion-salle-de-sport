@@ -600,6 +600,20 @@ String rech = oldValue+newValue ;
         
         
     }
+    @FXML
+    private void interfaceMenuAdmin(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            table_client.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 
 
 

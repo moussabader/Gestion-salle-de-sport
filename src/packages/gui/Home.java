@@ -27,9 +27,9 @@ public class Home extends Application {
             Parent root;
             //root = FXMLLoader.load(getClass().getResource("AjouterProduit.fxml"));
             //root = FXMLLoader.load(getClass().getResource("ListProduitClient.fxml"));
-            root = FXMLLoader.load(getClass().getResource("MenuClient.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Login.fxml"));
             root.getStylesheets().add(getClass().getResource("menu.css").toString());
-            Scene scene = new Scene(root, 746, 512);
+            Scene scene = new Scene(root, 746, 540);
             
             //primaryStage.setTitle("Ajout des Produits");
             primaryStage.setScene(scene);

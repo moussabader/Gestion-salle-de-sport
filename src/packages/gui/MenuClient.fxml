@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -9,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="694.0" style="-fx-background-color: #e2ffe1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.MenuClientController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="694.0" style="-fx-background-color: linear-gradient(to bottom, #6699ff 40%, #ff99cc 90%);;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.MenuClientController">
    <children>
-      <ImageView fitHeight="163.0" fitWidth="165.0" layoutX="22.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="110.0" fitWidth="100.0" layoutX="57.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/—Pngtree—vector%20users%20icon_3767867.png" />
+            <Image url="@../../images/user.png" />
          </image>
       </ImageView>
       <MenuBar fx:id="musers" layoutX="74.0" layoutY="195.0" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
@@ -25,12 +27,12 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ImageView fitHeight="122.0" fitWidth="126.0" layoutX="203.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="107.0" fitWidth="100.0" layoutX="214.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/favpng_inventory-management-software-inventory-control-download.png" />
+            <Image url="@../../images/add-to-basket.png" />
          </image>
       </ImageView>
-      <MenuBar layoutX="234.0" layoutY="195.0" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
+      <MenuBar layoutX="222.0" layoutY="195.0" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
          <menus>
             <Menu mnemonicParsing="false" text="Produits">
                <items>
@@ -41,12 +43,12 @@
             </Menu>
          </menus>
       </MenuBar>
-      <ImageView fitHeight="136.0" fitWidth="134.0" layoutX="350.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="136.0" fitWidth="134.0" layoutX="362.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/favpng_physical-fitness-physical-exercise-fitness-centre-clip-art.png" />
+            <Image url="@../../images/favpng_physical-fitness-fitness-centre-physical-exercise-bodybuilding.png" />
          </image>
       </ImageView>
-      <MenuBar layoutX="386.0" layoutY="195.0" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
+      <MenuBar layoutX="395.0" layoutY="195.0" prefHeight="30.0" prefWidth="68.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
          <menus>
             <Menu mnemonicParsing="false" text="Cours">
                <items>
@@ -55,29 +57,29 @@
             </Menu>
          </menus>
       </MenuBar>
-      <ImageView fitHeight="134.0" fitWidth="143.0" layoutX="516.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="121.0" fitWidth="115.0" layoutX="526.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/favpng_stock-photography-royalty-free-clip-art.png" />
+            <Image url="@../../images/favpng_financial-plan-business-process-planning-finance.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="134.0" fitWidth="122.0" layoutX="42.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="108.0" fitWidth="107.0" layoutX="57.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/reservation-icon-29769.png" />
+            <Image url="@../../images/reservation-icon-29772.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="134.0" fitWidth="134.0" layoutX="198.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="175.0" fitWidth="168.0" layoutX="181.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/favpng_public-relations-marketing-advertising-campaign-management.png" />
+            <Image url="@../../images/—Pngtree—office%20event%20calendar%20plan_5304242.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="98.0" fitWidth="193.0" layoutX="332.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="139.0" fitWidth="121.0" layoutX="360.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/favpng_youtube-dislike-facebook-like-button.png" />
+            <Image url="@../../images/—Pngtree—feedback%20feedback%20evaluation%20customer%20satisfaction_3945581.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="122.0" fitWidth="100.0" layoutX="534.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="107.0" fitWidth="107.0" layoutX="527.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/favpng_sauna-icon-claim-icon.png" />
+            <Image url="@../../images/favpng_web-page.png" />
          </image>
       </ImageView>
       <MenuBar layoutX="211.0" layoutY="405.0" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #0096C9;" stylesheets="@../../../CSS/menu.css">
@@ -123,5 +125,23 @@
          <font>
             <Font size="14.0" />
          </font></Button>
+      <ImageView fitHeight="61.0" fitWidth="65.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/—Pngtree—instagram%20logo%20social%20media%20instagram_3572487.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="61.0" fitWidth="65.0" layoutX="61.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/—Pngtree—facebook%20social%20media%20icon_3572498.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="123.0" layoutY="536.0" text="\@SweatFitness" textFill="#0056f5" />
+      <ImageView fitHeight="178.0" fitWidth="180.0" layoutX="-16.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/1.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="fblink" layoutX="63.0" layoutY="521.0" prefHeight="47.0" prefWidth="57.0" />
+      <Hyperlink fx:id="iglink" layoutX="2.0" layoutY="521.0" prefHeight="47.0" prefWidth="57.0" />
    </children>
 </AnchorPane>

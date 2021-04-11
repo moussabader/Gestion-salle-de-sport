@@ -145,12 +145,12 @@ public class ServiceClient {
     public void modifiermdp (Client c) {
     
         try {
-            String requete = "update client set mdp_c =? where ? = nom_c";
+            String requete = "update client set mdp_c =? where ? = login_c";
             PreparedStatement pre = cnx.prepareStatement(requete);
 
             
             pre.setString(1, c.getMdp_c());
-            pre.setString(2,c.getNom_c());
+            pre.setString(2,c.getLogin_c());
 
             pre.executeUpdate();
             System.out.println("Client Updated !!!");

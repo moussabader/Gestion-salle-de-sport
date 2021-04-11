@@ -3,11 +3,34 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/menu.css</file>
-            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/Home.java</file>
-            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/MenuClient.fxml</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/ModifiermdpController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/AdminClientController.java</file>
             <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/MenuClientController.java</file>
             <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/MenuAdminController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/LoginController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/AllCoursController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/services/CoursService.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/ListProduitClient.fxml</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/Home.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/MenuCoachController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/ConsulterController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/ClientCoursController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/entities/Coach.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/GcoachController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/AjoutCoursController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/ListProduitClientController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/PlanningController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/entities/Client.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/ListProduitController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/ModifierCoursController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/StatistiquesProduitController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/services/ReservationService.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/MdpoublierController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/AdminSMSController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/services/ServiceClient.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/FXMLReservationController.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/services/ServiceCoach.java</file>
+            <file>file:/C:/Users/RedBoy/Esprit/Pidev/SweatFitness/src/packages/gui/AjoutAviController.java</file>
         </group>
     </open-files>
 </project-private>

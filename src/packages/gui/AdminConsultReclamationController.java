@@ -5,6 +5,7 @@
  */
 package packages.gui;
 
+import java.io.IOException;
 import packages.entities.Reclamation;
 import packages.services.ReclamationCRUD;
 import java.net.URL;
@@ -22,7 +23,9 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -209,6 +212,48 @@ ObservableList<Reclamation> data = FXCollections.observableArrayList(li);
         cid.setCellValueFactory(new PropertyValueFactory<Reclamation , Integer>("Id"));
         
          tab.setItems(data);
+    }
+    @FXML
+    private void interfaceMenuAdmin(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            tab.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    @FXML
+    private void sms(MouseEvent event) {
+        
+        
+       
+        try{
+            Parent parent = FXMLLoader.load(getClass().getResource("SMS.fxml"));
+            parent.getStylesheets().add(getClass().getResource("menu.css").toString());
+            tab.getScene().setRoot(parent);
+
+            
+        }catch(IOException ex){
+            System.out.println(ex.getMessage());
+            
+        }
+    }
+    @FXML
+    private void ste(MouseEvent event) {
+        try{
+            Parent parent = FXMLLoader.load(getClass().getResource("statistiquecoach.fxml"));
+            parent.getStylesheets().add(getClass().getResource("menu.css").toString());
+            tab.getScene().setRoot(parent);
+
+        }catch(IOException ex){
+            System.out.println(ex.getMessage());
+            
+        }
     }
     
 }

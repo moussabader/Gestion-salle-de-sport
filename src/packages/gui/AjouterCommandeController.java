@@ -263,6 +263,20 @@ public class AjouterCommandeController implements Initializable {
         ByteMatrix bitMatrix = barcodeWriter.encode(barcodeText, BarcodeFormat.QR_CODE, 200, 200);
         return MatrixToImageWriter.toBufferedImage(bitMatrix);
     }
+    @FXML
+    private void interfaceMenuClient(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            datecmd.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 
     
 }

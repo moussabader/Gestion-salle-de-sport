@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListCommandeClientController">
+<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="746.0" style="-fx-background-color: linear-gradient(to bottom, #6699ff 40%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListCommandeClientController">
    <children>
       <TableView fx:id="tv_cmd_client" layoutX="48.0" layoutY="64.0" onMouseClicked="#showCommandeDetails" prefHeight="259.0" prefWidth="272.0">
         <columns>
@@ -26,18 +26,31 @@
         </columns>
       </TableView>
       <Separator layoutX="371.0" layoutY="64.0" orientation="VERTICAL" prefHeight="259.0" prefWidth="0.0" />
-      <Button fx:id="btn_edit_cmd" layoutX="294.0" layoutY="422.0" mnemonicParsing="false" onAction="#afficherInterfaceModif" prefHeight="25.0" prefWidth="166.0" text="Modifier" />
-      <Button fx:id="btn_listpr" layoutX="294.0" layoutY="386.0" mnemonicParsing="false" onAction="#afficherListeProduits" prefHeight="25.0" prefWidth="166.0" text="Liste des Produits" />
-      <Button fx:id="btn_del_cmd" layoutX="294.0" layoutY="459.0" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="25.0" prefWidth="166.0" text="Annuler" />
+      <Button fx:id="btn_edit_cmd" layoutX="294.0" layoutY="422.0" mnemonicParsing="false" onAction="#afficherInterfaceModif" prefHeight="25.0" prefWidth="166.0" text="Modifier">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="btn_listpr" layoutX="294.0" layoutY="386.0" mnemonicParsing="false" onAction="#afficherListeProduits" prefHeight="25.0" prefWidth="166.0" text="Liste des Produits">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="btn_del_cmd" layoutX="294.0" layoutY="459.0" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="25.0" prefWidth="166.0" text="Annuler">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
       <Label layoutX="93.0" layoutY="20.0" text="Liste des Commandes">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="Book Antiqua Bold Italic" size="20.0" />
          </font>
       </Label>
       <Label layoutX="461.0" layoutY="20.0" text="Détails des Commandes">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="Book Antiqua Bold Italic" size="20.0" />
          </font>
       </Label>
+      <Button layoutX="14.0" layoutY="472.0" mnemonicParsing="false" onAction="#interfaceMenuClient" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

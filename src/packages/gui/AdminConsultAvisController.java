@@ -5,6 +5,7 @@
  */
 package packages.gui;
 
+import java.io.IOException;
 import packages.entities.Avis;
 import java.net.URL;
 import java.sql.Connection;
@@ -19,7 +20,9 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -186,7 +189,47 @@ public class AdminConsultAvisController implements Initializable {
          Avis avis= table.getSelectionModel().getSelectedItem();
        lbID.setText(String.valueOf(avis.getIdavis()));
     }
+    @FXML
+    private void interfaceMenuAdmin(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
+    @FXML
+    private void email(MouseEvent event) {
+        try{
+            Parent parent = FXMLLoader.load(getClass().getResource("Mail.fxml"));
+            parent.getStylesheets().add(getClass().getResource("menu.css").toString());
+            table.getScene().setRoot(parent);
+ 
+        }catch(IOException ex){
+            System.out.println(ex.getMessage());
+            
+        }
+    }
+
+    @FXML
+private void state(MouseEvent event) {
+        try{
+            Parent parent = FXMLLoader.load(getClass().getResource("SatestiqueAvis.fxml"));
+            parent.getStylesheets().add(getClass().getResource("menu.css").toString());
+            table.getScene().setRoot(parent);
+
+        }catch(IOException ex){
+            System.out.println(ex.getMessage());
+            
+        }
+    }
+    }
+    
 
 
 

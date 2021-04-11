@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package packages.entities;
-
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
@@ -22,7 +21,7 @@ public class SmsSender {
     public static final String ACCOUNT_SID =
             "ACf6086d89e5e18bc32038e44af052eeec";
     public static final String AUTH_TOKEN =
-            "5f7a3d5292aa7a8bd7dd2080d79425d5";
+            "757107335b64e31b27365a6b8376b71d";
 
 
     public void send(String s,String x){

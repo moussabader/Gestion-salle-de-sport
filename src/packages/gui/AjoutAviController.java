@@ -152,8 +152,8 @@ private ObservableList<String> data = FXCollections.observableArrayList("Excelle
          
               }
         else{
-  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss");  
-   LocalDateTime date = LocalDateTime.now();      
+DateTimeFormatter dtf = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss");  
+LocalDateTime date = LocalDateTime.now();      
 String titre= txtt.getText();
 String commentaire = txtc.getText();
 String dat = String.valueOf(dtf.format(date));
@@ -166,10 +166,7 @@ AviCRUD VV = new AviCRUD();
     VV.ajouterAvis(av);
     display("Ajout","avec succée");
     Parent CalautoSc= FXMLLoader.load(getClass().getResource("aff.fxml"));
-        Scene Calculautoscene = new Scene (CalautoSc);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(Calculautoscene);
-        window.show();
+        datp.getScene().setRoot(CalautoSc);
         
           
         Notifications notificationBuilder = Notifications.create()
@@ -190,12 +187,26 @@ AviCRUD VV = new AviCRUD();
                 });
     
           notificationBuilder.darkStyle();
-          notificationBuilder.show();
+          //notificationBuilder.show();
         }
   
         return false;
    
     }  
+    @FXML
+    private void interfaceMenuClient(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            txtt.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
 
   

@@ -5,7 +5,10 @@
  */
 package packages.gui;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -33,12 +36,16 @@ public class MenuClientController implements Initializable {
 
     @FXML
     private Button btn_logout;
+    @FXML
+    private Hyperlink fblink;
+    @FXML
+    private Hyperlink iglink;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+     showSMpages();
         
     }
     
@@ -146,18 +153,15 @@ public class MenuClientController implements Initializable {
         }
 
     }
-    public void interfaceListEventClient() {
+    public void interfaceListEventClient() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("show_event_client.fxml"));
         
-        try {
+        
 
             Parent root = loader.load();
             btn_logout.getScene().setRoot(root);
             
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-
+        
     }
     public void interfaceListTicketsClient() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("show_ticket.fxml"));
@@ -236,6 +240,31 @@ public class MenuClientController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+
+    }
+    private void showSMpages() {
+        fblink.setOnAction((t) -> {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    Desktop.getDesktop().browse(new URI("https://www.facebook.com/SWEAT-FIT-101446008663369"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (URISyntaxException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+        iglink.setOnAction((t) -> {
+            if (Desktop.isDesktopSupported()) {
+                try {
+                    Desktop.getDesktop().browse(new URI("https://www.instagram.com/sweatfitness8/"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                } catch (URISyntaxException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
 
     }
 

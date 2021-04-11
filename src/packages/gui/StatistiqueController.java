@@ -7,6 +7,7 @@ package packages.gui;
 
 import packages.services.CoursService;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,10 +19,13 @@ import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Side;
+import javafx.scene.Parent;
 import javafx.scene.chart.PieChart;
 import javafx.util.Duration;
 import javax.swing.JOptionPane;
@@ -86,10 +90,36 @@ public class StatistiqueController implements Initializable {
                     
            } catch (SQLException ex) {
                 Logger.getLogger(StatistiqueController.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
+        for (PieChart.Data data : pc.getData())
+                     {
+                         data.getNode().addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,  new EventHandler<javafx.scene.input.MouseEvent>() {
+                             @Override
+                             public void handle(javafx.scene.input.MouseEvent event) {
+                               JOptionPane.showMessageDialog(null,"cours "    + data.getName()+        "nombre de reservation --"     +(int)data.getPieValue() );   
+                             }
+                         });
+                     }
+       
+       
        
                   
         // TODO
     }    
+    @FXML
+    private void interfaceMenuAdmin(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            pc.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
 }

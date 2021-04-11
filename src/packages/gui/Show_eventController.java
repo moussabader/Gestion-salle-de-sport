@@ -15,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +35,14 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import packages.entities.Avis;
+import packages.entities.Produit;
+import packages.tools.MyConnection;
 
 /**
  * FXML Controller class
@@ -55,6 +65,8 @@ public class Show_eventController implements Initializable {
     private Button edit;
     @FXML
     private Button btnsupp;
+    @FXML
+    private TextField filterField;
 
     /**
      * Initializes the controller class.
@@ -108,12 +120,7 @@ public class Show_eventController implements Initializable {
              
            try {
             Parent root = FXMLLoader.load(getClass().getResource("edit.fxml"));
-            Stage stage = (Stage) edit.getScene().getWindow();
-            stage.close();
-            Scene scene = new Scene(root);
-            
-            stage.setScene(scene);
-            stage.show();
+            edit.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -174,6 +181,33 @@ public class Show_eventController implements Initializable {
             System.err.println(ex.getMessage());
         }   
     }
+    /*public void showeventsfilter() throws SQLException{
+        List<Event> eventlist = new ArrayList<>();
+        
+            String req = "SELECT * FROM event";
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs =  st.executeQuery(req);
+            while(rs.next()){
+                Event e = new Event();
+                e.setNom_event(rs.getString("nom_event"));
+                e.settype_sport(rs.getString("type_sport"));
+                e.setPhone_number(Integer.parseInt(rs.getString("phone_number")));
+                e.setLocation(rs.getString("location"));
+                eventlist.add(e);
+            }
+        
+    ObservableList<Event> list = FXCollections.observableArrayList(eventlist);
+
+    FilteredList<Event> filteredData = new FilteredList<>(list, b -> true);
+		
+		filterField.textProperty().addListener((obs, oldValue, newValue) -> {
+            
+                    filteredData.setPredicate(e -> e.getnom_event().toLowerCase().contains(newValue.toLowerCase().trim()));
+                
+            });
+        tbl_event.setItems(filteredData);
+                
+}*/
        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -181,6 +215,21 @@ public class Show_eventController implements Initializable {
         fetColumnList();
         
         fetRowList(); 
-    }    
+         
+    }
+    @FXML
+    private void interfaceMenuAdmin(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            tbl_event.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
 }

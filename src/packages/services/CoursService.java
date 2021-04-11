@@ -48,13 +48,14 @@ public class CoursService {
         try{
         String req ;
         
-        req="INSERT INTO `cours`(`nom`, `description`,`Coach`, `image`) VALUES (?,?,?,?)";
+        req="INSERT INTO `cours`(`nom`, `description`,`Coach`, `image`,datec) VALUES (?,?,?,?,?)";
         PreparedStatement res=cnx.prepareStatement(req);
         
         res.setString(1, cours.getNom());
         res.setString(2, cours.getDescription());
         res.setString(3, cours.getNomCoach());
         res.setString(4, cours.getImage());
+        res.setDate(5, (Date) cours.getDatec());
 
        
         
@@ -91,7 +92,7 @@ public class CoursService {
                 U.setDescription(rs.getString(3));
                 U.setNomCoach(rs.getString(4));
                 U.setImage(rs.getString(5));
-                
+                U.setDatec(rs.getDate(6));
                 list.add(U);
                 
                 count++;
@@ -131,6 +132,7 @@ public class CoursService {
                 u.setDescription(rs.getString(3));
                 u.setNomCoach(rs.getString(4));
                 u.setImage(rs.getString(5));
+                u.setDatec(rs.getDate(6));
                
                 count++;
             }
@@ -173,6 +175,7 @@ public class CoursService {
                 
                 st.setString(1,r.getNom());
                 st.setString(2,r.getDescription());
+                
                 st.setString(3,r.getNomCoach());
                 st.setInt(4,r.getId());
               

@@ -100,8 +100,8 @@ private ObservableList<String> data = FXCollections.observableArrayList("Trop d'
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
 
-                cmbnom.getItems().add(new Coach(rs.getInt("id_co"), rs.getString("nomc"), rs.getString("prenomc")));
-
+                cmbnom.getItems().add(new Coach(rs.getInt("id_co"), rs.getString("nom_co"), rs.getString("prenom_co")));
+                
                 //  cmbnom.getItems().addAll(rs.getString("prenomc"));
                 //    String h= cmbnom.getValue();
             }
@@ -144,9 +144,24 @@ private ObservableList<String> data = FXCollections.observableArrayList("Trop d'
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(Calculautoscene);
             window.show();
+            
         }
         return false;
         
+    }
+   @FXML
+    private void interfaceMenuClient(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            cmbnom.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
    

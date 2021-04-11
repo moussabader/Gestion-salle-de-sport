@@ -33,6 +33,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 
 /**
  * FXML Controller class
@@ -108,12 +109,7 @@ public class Show_eventClientController implements Initializable {
              
            try {
             Parent root = FXMLLoader.load(getClass().getResource("edit.fxml"));
-            Stage stage = (Stage) edit.getScene().getWindow();
-            stage.close();
-            Scene scene = new Scene(root);
-            
-            stage.setScene(scene);
-            stage.show();
+            edit.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -182,5 +178,19 @@ public class Show_eventClientController implements Initializable {
         
         fetRowList(); 
     }    
+    @FXML
+    private void interfaceMenuClient(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            tbl_event.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
 }

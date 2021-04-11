@@ -8,6 +8,11 @@ package packages.services;
 import packages.entities.Reservation;
 import packages.interfaces.IReservation;
 import packages.tools.MyConnection;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -101,23 +106,46 @@ public class ReservationCRUD implements IReservation {
             System.out.println(ex.getMessage());
         }
     }
-    @Override
-    public ObservableList<Reservation> Try() throws SQLException {
-        Statement stm = cnx.createStatement();
-        String query = "SELECT * FROM reservation WHERE is_deleted = 0 ORDER BY id_reservation DESC  ";
-        ResultSet rst = stm.executeQuery(query);
-        ObservableList<Reservation> data = FXCollections.observableArrayList();
-        while (rst.next()) {
-            Reservation r = new Reservation();
-            r.setId_reservation(rst.getInt("id_reservation"));
-            r.setNom_client(rst.getString("nom_client"));
-            r.setNom_cours(rst.getString("nom_cours"));
-            r.setDate_reservation(rst.getDate("date_reservation"));
-            r.setEtat(rst.getString("etat"));
-            data.add(r);
-
+    
+    
+    private Statement ste;
+    private PreparedStatement pst ;
+    private ResultSet res ;
+    
+        public int calculer() {
+          int l = 0 ;
+         String requete = "SELECT COUNT(etat) FROM reservation WHERE etat=\"Reffuser\" " ;
+        try {
+           
+           Statement st =cnx.createStatement();
+           ResultSet rs=st.executeQuery(requete);
+           if (rs.next()){
+          String chaine = String.valueOf(rs.getString(1));
+           l=Integer.parseInt(chaine);
+            System.out.println(l);}
+        } catch (SQLException ex) {
+            Logger.getLogger(ReservationCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return data;
+        
+      return l ;
     }
+            public int calculerapp() {
+          int l = 0 ;
+         String requete = "SELECT COUNT(Etat) FROM reservation WHERE Etat=\"Accepter\" " ;
+        try {
+           
+           Statement st =cnx.createStatement();
+           ResultSet rs=st.executeQuery(requete);
+           if (rs.next()){
+          String chaine = String.valueOf(rs.getString(1));
+           l=Integer.parseInt(chaine);
+            System.out.println(l);}
+        } catch (SQLException ex) {
+            Logger.getLogger(ReservationCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+      return l ;
+    }
+            
 
 }

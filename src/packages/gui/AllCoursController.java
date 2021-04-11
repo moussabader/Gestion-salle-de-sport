@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLDataException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
@@ -33,6 +34,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import packages.utils.mail;
 
 /**
  * FXML Controller class
@@ -57,7 +59,7 @@ public class AllCoursController implements Initializable {
     @FXML
     private TextField recherche;
     @FXML
-    private TableColumn<?, ?> note;
+    private TableColumn<Cours, Date> date;
 
 
     /**
@@ -81,9 +83,10 @@ public class AllCoursController implements Initializable {
         caoch.setCellValueFactory(
             new PropertyValueFactory<>("nomCoach")
         );
-        /*note.setCellValueFactory(
-            new PropertyValueFactory<>("note")
-        );*/
+            date.setCellValueFactory(
+            new PropertyValueFactory<>("datec")
+        );
+     
         
     }    
 
@@ -94,7 +97,7 @@ public class AllCoursController implements Initializable {
         
             idL = rec.getId();
                    try {
-                           Parent root = FXMLLoader.load(getClass().getResource("/GUI/ModifierCours.fxml"));
+                           Parent root = FXMLLoader.load(getClass().getResource("ModifierCours.fxml"));
                             Stage myWindow = (Stage) table.getScene().getWindow();
                             Scene sc = new Scene(root);
                             myWindow.setScene(sc);
@@ -107,15 +110,16 @@ public class AllCoursController implements Initializable {
     }
 
     @FXML
-    private void Supprimer(ActionEvent event) throws SQLDataException {
+    private void Supprimer(ActionEvent event) throws SQLDataException, Exception {
         
         Cours RecSelec = (Cours) table.getSelectionModel().getSelectedItem();
         Cours r = new Cours();
         r = cs.findCoursById(RecSelec.getId());
         List<Reservation> list = new ArrayList<Reservation>();
         list = rs.getAllResrvation(RecSelec.getId());
-        
+    
         cs.deleteCours(r.getId());
+          mail.envoi("mariem.benghozlen@esprit.tn", "Cours Annulé", "Votre Cours : "+r.getId()+"est annulé merci de nous contacter");
         resetTableData();
         
     }
@@ -163,7 +167,7 @@ public class AllCoursController implements Initializable {
                     if(cours.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1 ){
                         return true;
                     }
-                    else if (cours.getNomCoach().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    else if (cours.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true; // Filter matches last name.
                     }
                     
@@ -181,6 +185,20 @@ public class AllCoursController implements Initializable {
         // 5. Add sorted (and filtered) data to the table.
         table.setItems(sortedData);
         
+    }
+    @FXML
+    private void interfaceMenuAdmin(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

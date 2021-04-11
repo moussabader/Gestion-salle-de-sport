@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AdminCoachController">
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="782.0" style="-fx-background-color: linear-gradient(to bottom left, #6699ff 10%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AdminCoachController">
    <children>
-      <TableView fx:id="table_coach" layoutX="501.0" layoutY="61.0" onMouseClicked="#getselected" prefHeight="449.0" prefWidth="418.0">
+      <TableView fx:id="table_coach" layoutX="353.0" layoutY="35.0" onMouseClicked="#getselected" prefHeight="412.0" prefWidth="418.0">
         <columns>
           <TableColumn fx:id="nco_colone" prefWidth="75.0" text="Nom" />
           <TableColumn fx:id="pco_colone" prefWidth="75.0" text="Prenom" />
@@ -23,30 +23,69 @@
             <TableColumn fx:id="mdpco_colone" prefWidth="117.0" text="Mot de passe" />
         </columns>
       </TableView>
-      <TextField fx:id="nco_text" layoutX="223.0" layoutY="116.0" prefHeight="35.0" prefWidth="145.0" />
-      <TextField fx:id="pco_text" layoutX="223.0" layoutY="180.0" prefHeight="35.0" prefWidth="145.0" />
-      <TextField fx:id="lco_text" layoutX="223.0" layoutY="286.0" prefHeight="35.0" prefWidth="145.0" />
-      <ComboBox fx:id="gco_combo" layoutX="221.0" layoutY="233.0" prefHeight="35.0" prefWidth="150.0" />
-      <Label layoutX="114.0" layoutY="125.0" text="Nom" />
-      <Label layoutX="114.0" layoutY="189.0" text="Prenom" />
-      <Label layoutX="119.0" layoutY="242.0" text="Genre" />
-      <Label layoutX="120.0" layoutY="295.0" text="Login" />
-      <Label layoutX="118.0" layoutY="348.0" text="Mot de passe" />
-      <Button layoutX="194.0" layoutY="415.0" mnemonicParsing="false" onAction="#ajouterco" prefHeight="35.0" prefWidth="85.0" text="Ajouter" />
-      <Button layoutX="329.0" layoutY="415.0" mnemonicParsing="false" onAction="#modifierco" prefHeight="35.0" prefWidth="85.0" text="Modifier" />
-      <Button layoutX="265.0" layoutY="475.0" mnemonicParsing="false" onAction="#supprimerco" prefHeight="35.0" prefWidth="85.0" text="Supprimer" />
-      <CheckBox fx:id="checkbox" layoutX="391.0" layoutY="366.0" mnemonicParsing="false" onAction="#showpw" text="Show" />
-      <PasswordField fx:id="mdpco_text" layoutX="222.0" layoutY="336.0" prefHeight="35.0" prefWidth="145.0" />
-      <Button layoutX="747.0" layoutY="545.0" mnemonicParsing="false" onAction="#calcul" prefHeight="35.0" prefWidth="72.0" text="Statistique" />
-      <Button layoutX="865.0" layoutY="570.0" mnemonicParsing="false" onAction="#Back" text="Back" />
-      <Button layoutX="615.0" layoutY="545.0" mnemonicParsing="false" onAction="#printpdf" prefHeight="35.0" prefWidth="72.0" text="Pdf print " />
-      <Button layoutX="96.0" layoutY="415.0" mnemonicParsing="false" onAction="#clear" text="Reset" />
-      <TextField fx:id="recherche_text" layoutX="626.0" layoutY="14.0" prefHeight="35.0" prefWidth="146.0" />
-      <Pane fx:id="pn" layoutX="33.0" layoutY="12.0" opacity="0.07" prefHeight="92.0" prefWidth="379.0" style="-fx-background-color: green;">
+      <TextField fx:id="nco_text" layoutX="143.0" layoutY="94.0" prefHeight="25.0" prefWidth="131.0" />
+      <TextField fx:id="pco_text" layoutX="143.0" layoutY="150.0" prefHeight="25.0" prefWidth="131.0" />
+      <TextField fx:id="lco_text" layoutX="143.0" layoutY="247.0" prefHeight="25.0" prefWidth="131.0" />
+      <ComboBox fx:id="gco_combo" layoutX="143.0" layoutY="202.0" prefHeight="17.0" prefWidth="131.0" />
+      <Label layoutX="36.0" layoutY="98.0" text="Nom">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="34.0" layoutY="154.0" prefHeight="17.0" prefWidth="50.0" text="Prenom">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="31.0" layoutY="206.0" prefHeight="17.0" prefWidth="41.0" text="Genre">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="31.0" layoutY="251.0" prefHeight="17.0" prefWidth="41.0" text="Login">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="27.0" layoutY="301.0" text="Mot de passe">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <Button layoutX="9.0" layoutY="425.0" mnemonicParsing="false" onAction="#ajouterco" prefHeight="28.0" prefWidth="101.0" text="Ajouter">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button layoutX="239.0" layoutY="425.0" mnemonicParsing="false" onAction="#modifierco" prefHeight="28.0" prefWidth="101.0" text="Modifier">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button layoutX="124.0" layoutY="425.0" mnemonicParsing="false" onAction="#supprimerco" prefHeight="28.0" prefWidth="101.0" text="Supprimer">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <CheckBox fx:id="checkbox" layoutX="144.0" layoutY="334.0" mnemonicParsing="false" onAction="#showpw" text="Afficher password">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></CheckBox>
+      <PasswordField fx:id="mdpco_text" layoutX="143.0" layoutY="298.0" prefHeight="25.0" prefWidth="131.0" />
+      <Button layoutX="239.0" layoutY="472.0" mnemonicParsing="false" onAction="#calcul" prefHeight="28.0" prefWidth="101.0" text="Statistiques">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button layoutX="9.0" layoutY="472.0" mnemonicParsing="false" onAction="#interfaceMenuAdmin" prefHeight="28.0" prefWidth="101.0" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button layoutX="124.0" layoutY="472.0" mnemonicParsing="false" onAction="#printpdf" prefHeight="27.0" prefWidth="101.0" text="Générer PDF">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button layoutX="145.0" layoutY="373.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="58.0" text="Reset">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <TextField fx:id="recherche_text" layoutX="499.0" layoutY="468.0" prefHeight="35.0" prefWidth="146.0" />
+      <Pane fx:id="pn" layoutX="33.0" layoutY="12.0" opacity="0.07" prefHeight="49.0" prefWidth="157.0" style="-fx-background-color: #ccccff; -fx-border-color: #ccccff; -fx-background-radius: 50px; -fx-border-radius: 50px;">
          <children>
-            <Label layoutX="91.0" layoutY="-6.0" text="Coach">
+            <Label layoutX="20.0" layoutY="-2.0" prefHeight="35.0" prefWidth="117.0" text="Coach">
                <font>
-                  <Font size="72.0" />
+                  <Font name="Book Antiqua Bold Italic" size="36.0" />
                </font>
             </Label>
          </children>

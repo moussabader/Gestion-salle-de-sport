@@ -214,7 +214,7 @@ stage.show();
     private void selectid(MouseEvent event) {
         
         Reclamation rec = tab.getSelectionModel().getSelectedItem();
-       bb.setText(String.valueOf(rec.getId()));
+        bb.setText(String.valueOf(rec.getId()));
        
     }
     
@@ -237,6 +237,20 @@ stage.show();
         String query ="DELETE FROM Reclamation WHERE id="+Integer.parseInt(bb.getText())+"";
         executeUpdate(query);
        showreclamation();
+    }
+    @FXML
+    private void interfaceMenuClient(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            tab.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
      
 }

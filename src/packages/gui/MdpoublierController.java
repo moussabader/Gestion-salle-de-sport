@@ -10,6 +10,7 @@ import packages.entities.Coach;
 import packages.services.ServiceClient;
 import packages.services.ServiceCoach;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import java.net.URL;
@@ -23,8 +24,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -79,11 +82,11 @@ public class MdpoublierController implements Initializable {
                                                      .graphic(null)
                                                      .hideAfter(javafx.util.Duration.seconds(5) )
                                                       .position(Pos.TOP_LEFT) ;
-      notificationBuilder.show(); 
+      //notificationBuilder.show(); 
       ser.modifiermdp(c);
          
          
-        sendMail("iheb.harrath@esprit.tn", "harath", rand);
+        sendMail("iheb.harrath@esprit.tn", "Client", rand);
         }
       else {Alert al = new Alert(Alert.AlertType.ERROR);
         al.setTitle("Alert");
@@ -109,13 +112,13 @@ public class MdpoublierController implements Initializable {
         Coach co = new Coach(id_text.getText(),rand);
         
         s.modifiermdp(co) ; 
-        sendMail("iheb.harrath@esprit.tn", "harath", rand);   
+        sendMail("iheb.harrath@esprit.tn", "Coach", rand);   
         Notifications notificationBuilder = Notifications.create()
                                                      .title("Mail envoyee")
                                                      .graphic(null)
                                                      .hideAfter(javafx.util.Duration.seconds(5) )
                                                       .position(Pos.TOP_LEFT) ;
-        notificationBuilder.show(); 
+        //notificationBuilder.show(); 
           
           }
           else  {Alert al = new Alert(Alert.AlertType.ERROR);
@@ -130,7 +133,12 @@ public class MdpoublierController implements Initializable {
         al.setHeaderText(null);
         al.show() ;  }
                  
+        FXMLLoader loader = new FXMLLoader();
         
+        loader.setLocation(getClass().getResource("Login.fxml"));
+        
+        Parent root = loader.load();
+        id_text.getScene().setRoot(root);
          
        
        
@@ -177,7 +185,7 @@ public class MdpoublierController implements Initializable {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("Avis de mots passe oublié");
+            message.setSubject("Mots passe oublié");
             String htmlCode = "Cher/Chere "+LastName+", <br/>"
             		+ "Votre code d'activation: "+code+". <br/>"
             				+ "Cordialement,<br/> Esprit";
@@ -187,6 +195,16 @@ public class MdpoublierController implements Initializable {
         	System.out.print(ex.getMessage());
         }
         return null;
+    }
+
+    @FXML
+    private void back(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        
+        loader.setLocation(getClass().getResource("MdpoublierPage.fxml"));
+        Parent root = loader.load();
+        id_text.getScene().setRoot(root);
+        
     }
     
 }

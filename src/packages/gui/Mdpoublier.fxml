@@ -5,13 +5,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.MdpoublierController">
+<AnchorPane id="AnchorPane" prefHeight="366.0" prefWidth="507.0" style="-fx-background-color: linear-gradient(to top right, #6699ff 10%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.MdpoublierController">
    <children>
-      <TextField fx:id="id_text" layoutX="377.0" layoutY="235.0" prefHeight="47.0" prefWidth="160.0" />
-      <Label layoutX="246.0" layoutY="242.0" prefHeight="33.0" prefWidth="110.0" text="insert user login" />
-      <Button layoutX="425.0" layoutY="388.0" mnemonicParsing="false" onAction="#find" prefHeight="40.0" prefWidth="74.0" text="Valider" />
-      <ComboBox fx:id="g_combo" layoutX="377.0" layoutY="112.0" prefHeight="40.0" prefWidth="160.0" />
-      <Label layoutX="273.0" layoutY="123.0" text="Genre" />
+      <TextField fx:id="id_text" layoutX="258.0" layoutY="153.0" prefHeight="33.0" prefWidth="160.0" />
+      <Label layoutX="63.0" layoutY="153.0" prefHeight="33.0" prefWidth="144.0" text="Insérer votre login">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <Button layoutX="215.0" layoutY="231.0" mnemonicParsing="false" onAction="#find" prefHeight="27.0" prefWidth="75.0" text="Valider">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <ComboBox fx:id="g_combo" layoutX="258.0" layoutY="67.0" prefHeight="33.0" prefWidth="160.0" />
+      <Label layoutX="63.0" layoutY="75.0" text="Choisir le type d'utilisateur">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <Button layoutX="215.0" layoutY="270.0" mnemonicParsing="false" onAction="#back" prefHeight="28.0" prefWidth="75.0" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

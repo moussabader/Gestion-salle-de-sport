@@ -4,17 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.FXMLShowSuiviController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #6699ff 40%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.FXMLShowSuiviController">
    <children>
-      <Label layoutX="162.0" layoutY="14.0" prefHeight="53.0" prefWidth="277.0" text="Liste des Suivis">
+      <Label layoutX="210.0" layoutY="14.0" prefHeight="53.0" prefWidth="277.0" text="Liste des Suivis">
          <font>
-            <Font name="System Italic" size="36.0" />
+            <Font name="Book Antiqua Bold Italic" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tablesuivi" layoutX="14.0" layoutY="77.0" prefHeight="230.0" prefWidth="572.0">
+      <TableView fx:id="tablesuivi" layoutX="29.0" layoutY="77.0" prefHeight="237.0" prefWidth="555.0">
         <columns>
           <TableColumn fx:id="col1Id" prefWidth="91.0" text="Nom_Coach" />
             <TableColumn fx:id="col2Id" minWidth="6.0" prefWidth="101.0" text="Nom_Client" />
@@ -22,10 +23,15 @@
             <TableColumn fx:id="col4Id" prefWidth="185.0" text="Conseils" />
         </columns>
       </TableView>
-      <Button layoutX="462.0" layoutY="324.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="43.0" prefWidth="89.0" text="Retour">
+      <Button fx:id="retour" layoutX="509.0" layoutY="355.0" mnemonicParsing="false" onAction="#interfaceMenuClient" prefHeight="27.0" prefWidth="77.0" text="Retour">
          <font>
-            <Font name="System Bold Italic" size="12.0" />
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font>
       </Button>
+      <Label layoutX="49.0" layoutY="346.0" text="Recherche :">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <TextField fx:id="recherche" layoutX="134.0" layoutY="342.0" />
    </children>
 </AnchorPane>

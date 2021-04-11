@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -210,17 +211,30 @@ public class ListProduitController implements Initializable {
             }
         });
     }
-    public void showStats() {
+    public void showStats() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("StatistiquesProduit.fxml"));
+
+        
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            tv_produit.getScene().setRoot(root);
+
+        
+        
+    }
+    @FXML
+    private void interfaceMenuAdmin(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
 
         try {
             Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
             tv_produit.getScene().setRoot(root);
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        
     }
 
 }

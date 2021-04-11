@@ -5,6 +5,7 @@
  */
 package packages.gui;
 
+import java.io.IOException;
 import packages.entities.Client;
 import packages.entities.Coach;
 import packages.services.ServiceClient;
@@ -16,8 +17,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -102,7 +105,7 @@ public class GcoachController implements Initializable {
                                                      .graphic(null)
                                                      .hideAfter(javafx.util.Duration.seconds(5) )
                                                       .position(Pos.TOP_LEFT) ;
-         notificationBuilder.show(); 
+         //notificationBuilder.show(); 
         }}
                 
     }
@@ -175,6 +178,21 @@ public boolean verifUserChamps() {
         al.show() ; 
         
         return false;
+    }
+@FXML
+    public void ReturnMenuCoach(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuCoach.fxml"));
+
+        try {
+
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            nco_text.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
     }
         
         

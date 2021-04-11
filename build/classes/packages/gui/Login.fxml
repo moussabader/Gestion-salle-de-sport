@@ -6,16 +6,47 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="371.0" prefWidth="522.0" style="-fx-background-color: linear-gradient(to top right, #6699ff 10%, #ff99cc 90%);; }: ;" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.LoginController">
    <children>
-      <TextField fx:id="login_text" layoutX="383.0" layoutY="185.0" prefHeight="41.0" prefWidth="158.0" />
-      <Button layoutX="424.0" layoutY="385.0" mnemonicParsing="false" onAction="#login" prefHeight="42.0" prefWidth="75.0" text="Login" />
-      <CheckBox fx:id="checkpass" layoutX="556.0" layoutY="289.0" mnemonicParsing="false" onAction="#showpassword" prefHeight="18.0" prefWidth="75.0" text="Show" />
-      <PasswordField fx:id="mdp_text" layoutX="383.0" layoutY="256.0" prefHeight="42.0" prefWidth="158.0" />
-      <Hyperlink layoutX="308.0" layoutY="318.0" onAction="#mdpoublier" prefHeight="23.0" prefWidth="150.0" text="Mot de passe oublier" />
-      <Label layoutX="269.0" layoutY="190.0" prefHeight="31.0" prefWidth="58.0" text="User id " />
-      <Label layoutX="269.0" layoutY="269.0" text="Password" />
+      <TextField fx:id="login_text" layoutX="200.0" layoutY="99.0" prefHeight="31.0" prefWidth="139.0" />
+      <Button layoutX="215.0" layoutY="282.0" mnemonicParsing="false" onAction="#login" prefHeight="28.0" prefWidth="109.0" text="Se Connecter">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <CheckBox fx:id="checkpass" layoutX="154.0" layoutY="206.0" mnemonicParsing="false" onAction="#showpassword" prefHeight="18.0" prefWidth="124.0" text="Afficher password">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="12.0" />
+         </font></CheckBox>
+      <PasswordField fx:id="mdp_text" layoutX="200.0" layoutY="153.0" prefHeight="31.0" prefWidth="139.0" />
+      <Hyperlink layoutX="197.0" layoutY="240.0" onAction="#mdpoublier" prefHeight="27.0" prefWidth="147.0" text="Mot de passe oublié !" textFill="#0096c9">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="13.0" />
+         </font></Hyperlink>
+      <Label layoutX="96.0" layoutY="99.0" prefHeight="31.0" prefWidth="58.0" text="Login">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="96.0" layoutY="160.0" text="Password">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <CheckBox fx:id="check" layoutX="295.0" layoutY="206.0" mnemonicParsing="false" onAction="#enregistre" prefHeight="17.0" prefWidth="124.0" text="Se souvenir de moi">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="12.0" />
+         </font></CheckBox>
+      <Button layoutX="357.0" layoutY="156.0" mnemonicParsing="false" onAction="#select" prefHeight="27.0" prefWidth="109.0" text="Insérer Password">
+         <font>
+            <Font name="Book Antiqua" size="12.0" />
+         </font></Button>
+      <ImageView fitHeight="203.0" fitWidth="206.0" layoutX="-25.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/1.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -27,8 +27,8 @@ public class Coach {
         this.prenom_co = prenomc;
     }
     
-     public Coach(String nom_co,String mdp_co){
-        this.nom_co=nom_co ; 
+     public Coach(String login_co,String mdp_co){
+        this.login_co=login_co ; 
         this.mdp_co=mdp_co ; }
 
     public Coach(int id_co, String nom_co, String prenom_co, String genre_co, String login_co, String mdp_co) {
@@ -46,6 +46,12 @@ public class Coach {
         this.genre_co = genre_co;
         this.login_co = login_co;
         this.mdp_co = mdp_co;
+    }
+    public Coach(String nom_co, String prenom_co, String genre_co) {
+        this.nom_co = nom_co;
+        this.prenom_co = prenom_co;
+        this.genre_co = genre_co;
+        
     }
 
     public Coach() {

@@ -89,18 +89,29 @@ public class ClientCoursController implements Initializable {
                idL =RecSelec.getId();
                 
           try {
-                           Parent root = FXMLLoader.load(getClass().getResource("/GUI/DétailsCours.fxml"));
-                            Stage myWindow = (Stage) table.getScene().getWindow();
-                            Scene sc = new Scene(root);
-                            myWindow.setScene(sc);
-                            myWindow.setTitle("page name");
-                            //myWindow.setFullScreen(true);
-                            myWindow.show();
+              FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailsCours.fxml"));
+                           Parent root = loader.load();
+                           table.getScene().setRoot(root);
+                            
                         } catch (IOException ex) {
                             Logger.getLogger(ClientCoursController.class.getName()).log(Level.SEVERE, null, ex);
                         }
         
         
+    }
+    @FXML
+    private void interfaceMenuClient(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 

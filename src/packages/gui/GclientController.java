@@ -199,8 +199,9 @@ public boolean verifUserChamps() {
     private void back(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         
-        loader.setLocation(getClass().getResource("Login.fxml"));
+        loader.setLocation(getClass().getResource("MenuClient.fxml"));
         Parent root = loader.load();
+        root.getStylesheets().add(getClass().getResource("menu.css").toString());
         nc_text.getScene().setRoot(root);
     }
     

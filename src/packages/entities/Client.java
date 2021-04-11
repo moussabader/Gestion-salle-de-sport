@@ -18,8 +18,8 @@ public class Client {
 
     public Client() {
     }
-    public Client(String nom_c,String mdp_c){
-        this.nom_c=nom_c ; 
+    public Client(String login_c,String mdp_c){
+        this.login_c=login_c ; 
         this.mdp_c=mdp_c ; }
     public Client(int id_c,String nom_c,String prenom_c , String genre_c , Date ddn ){
         this.id_c=id_c ; 

@@ -66,7 +66,7 @@ public class ModifierCoursController implements Initializable {
         cs.ModifierCours(c1);
         
           try {
-                           Parent root = FXMLLoader.load(getClass().getResource("/GUI/AllCours.fxml"));
+                           Parent root = FXMLLoader.load(getClass().getResource("AllCours.fxml"));
                             Stage myWindow = (Stage) des.getScene().getWindow();
                             Scene sc = new Scene(root);
                             myWindow.setScene(sc);

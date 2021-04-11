@@ -14,25 +14,34 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListProduitController">
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="666.0" style="-fx-background-color: linear-gradient(to bottom left, #6699ff 10%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListProduitController">
    <children>
-      <TableView fx:id="tv_produit" editable="true" layoutX="15.0" layoutY="76.0" onMouseClicked="#showImage" prefHeight="203.0" prefWidth="368.0">
+      <TableView fx:id="tv_produit" editable="true" layoutX="37.0" layoutY="73.0" onMouseClicked="#showImage" prefHeight="240.0" prefWidth="361.0">
         <columns>
           <TableColumn fx:id="col_nom" prefWidth="115.0" text="Nom Produit" />
             <TableColumn fx:id="col_marque" prefWidth="129.0" text="Marque Produit" />
-            <TableColumn fx:id="col_qte" prefWidth="68.0" text="Quantité" />
-            <TableColumn fx:id="col_prix" prefWidth="51.0" text="Prix" />
+            <TableColumn fx:id="col_qte" prefWidth="67.0" text="Quantité" />
+            <TableColumn fx:id="col_prix" prefWidth="52.0" text="Prix" />
             <TableColumn fx:id="col_img" prefWidth="204.0" text="Image Path" visible="false" />
         </columns>
       </TableView>
-      <Button fx:id="btn_ed_pr" layoutX="238.0" layoutY="328.0" mnemonicParsing="false" onAction="#afficherInterfaceModif" prefHeight="25.0" prefWidth="83.0" text="Modifier" />
-      <Button fx:id="btn_del_pr" layoutX="343.0" layoutY="328.0" mnemonicParsing="false" onAction="#supprimerProduit" prefHeight="25.0" prefWidth="83.0" text="Supprimer" />
-      <Label layoutX="269.0" layoutY="14.0" text="Liste des Produits">
+      <Button fx:id="btn_ed_pr" layoutX="560.0" layoutY="340.0" mnemonicParsing="false" onAction="#afficherInterfaceModif" prefHeight="28.0" prefWidth="91.0" text="Modifier">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="btn_del_pr" layoutX="560.0" layoutY="375.0" mnemonicParsing="false" onAction="#supprimerProduit" prefHeight="28.0" prefWidth="91.0" text="Supprimer">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Label layoutX="246.0" layoutY="14.0" text="Liste des Produits">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btn_add_pr" layoutX="127.0" layoutY="328.0" mnemonicParsing="false" onAction="#afficherInterfaceAjout" prefHeight="25.0" prefWidth="83.0" text="Ajouter" />
+      <Button fx:id="btn_add_pr" layoutX="560.0" layoutY="304.0" mnemonicParsing="false" onAction="#afficherInterfaceAjout" prefHeight="28.0" prefWidth="91.0" text="Ajouter">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
       <GridPane fx:id="grid_img" layoutX="415.0" layoutY="163.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -45,13 +54,23 @@
       <Separator layoutX="418.0" layoutY="75.0" prefHeight="0.0" prefWidth="190.0" />
       <Separator layoutX="605.0" layoutY="78.0" orientation="VERTICAL" prefHeight="203.0" prefWidth="0.0" />
       <Separator layoutX="418.0" layoutY="276.0" prefHeight="0.0" prefWidth="190.0" />
-      <Button fx:id="btn_list_cmd" layoutX="461.0" layoutY="328.0" mnemonicParsing="false" onAction="#afficherListCmd" prefHeight="25.0" prefWidth="110.0" text="Liste Commandes" />
-      <ToolBar layoutX="14.0" layoutY="281.0" prefHeight="35.0" prefWidth="231.0">
+      <Button fx:id="btn_list_cmd" layoutX="239.0" layoutY="378.0" mnemonicParsing="false" onAction="#afficherListCmd" prefHeight="28.0" prefWidth="138.0" text="Liste Commandes">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <ToolBar layoutX="37.0" layoutY="322.0" prefHeight="37.0" prefWidth="233.0">
         <items>
             <ChoiceBox fx:id="list_search" prefHeight="25.0" prefWidth="114.0" />
             <TextField fx:id="txt_search" prefHeight="25.0" prefWidth="100.0" />
         </items>
       </ToolBar>
-      <Button fx:id="btn_stats" layoutX="15.0" layoutY="328.0" mnemonicParsing="false" onAction="#showStats" prefHeight="25.0" prefWidth="83.0" text="Statistiques" />
+      <Button fx:id="btn_stats" layoutX="117.0" layoutY="378.0" mnemonicParsing="false" onAction="#showStats" prefHeight="28.0" prefWidth="100.0" text="Statistiques">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button layoutX="15.0" layoutY="378.0" mnemonicParsing="false" onAction="#interfaceMenuAdmin" prefHeight="28.0" prefWidth="83.0" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

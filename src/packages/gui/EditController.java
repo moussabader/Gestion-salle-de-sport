@@ -23,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -45,7 +46,7 @@ public class EditController implements Initializable {
     @FXML
     private TextField nom;
     @FXML
-    private TextField type;
+    private ComboBox<String> type;
     @FXML
     private TextField tel;
     @FXML
@@ -62,6 +63,7 @@ public class EditController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        type.getItems().addAll("Gymnastique","Spinning","Musculation","Marathon");
          Statement statement=null ;
         ResultSet resultSet = null ;
         try {
@@ -76,7 +78,7 @@ public class EditController implements Initializable {
            
             nom.setText(resultSet.getString("nom_event"));
           
-            type.setText(resultSet.getString("type_sport"));
+            type.setValue(resultSet.getString("type_sport"));
             tel.setText(resultSet.getString("phone_number"));
             date.setText(resultSet.getString("datee"));
             location.setText(resultSet.getString("location"));
@@ -101,7 +103,7 @@ public class EditController implements Initializable {
         String st = "UPDATE event SET nom_event= ?, type_sport = ?, phone_number = ?,  datee = ?,  location = ? WHERE id = '"+ref+"';";
         preparedStatement = (PreparedStatement) cnx.prepareStatement(st);
         preparedStatement.setString(1, nom.getText());
-        preparedStatement.setString(2, type.getText());
+        preparedStatement.setString(2, type.getValue());
         preparedStatement.setString(3, tel.getText());
         preparedStatement.setString(4, date.getText());
         preparedStatement.setString(5, location.getText());
@@ -115,12 +117,7 @@ public class EditController implements Initializable {
     private void back(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("show_event.fxml"));
-            Stage stage = (Stage) update.getScene().getWindow();
-            stage.close();
-            Scene scene = new Scene(root);
-            
-            stage.setScene(scene);
-            stage.show();
+            nom.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }

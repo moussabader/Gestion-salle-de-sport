@@ -6,10 +6,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AdminConsultReclamationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom left, #6699ff 10%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AdminConsultReclamationController">
    <children>
-      <TableView fx:id="tab" layoutX="47.0" layoutY="90.0" onMouseClicked="#selectid" prefHeight="200.0" prefWidth="536.0">
+      <TableView fx:id="tab" layoutX="43.0" layoutY="35.0" onMouseClicked="#selectid" prefHeight="258.0" prefWidth="530.0">
         <columns>
           <TableColumn fx:id="cdescription" prefWidth="222.0" text="Description" />
           <TableColumn fx:id="ccoach" prefWidth="214.0" text="Coach" />
@@ -17,8 +18,25 @@
             <TableColumn fx:id="cid" prefWidth="75.0" text="id" visible="false" />
         </columns>
       </TableView>
-      <TextField fx:id="rech" layoutX="391.0" layoutY="26.0" />
-      <Button layoutX="76.0" layoutY="321.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
+      <TextField fx:id="rech" layoutX="54.0" layoutY="309.0" />
+      <Button layoutX="266.0" layoutY="309.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
       <Label fx:id="bb" layoutX="280.0" layoutY="337.0" text="Label" visible="false" />
+      <Button layoutX="23.0" layoutY="354.0" mnemonicParsing="false" onAction="#interfaceMenuAdmin" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button layoutX="365.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#sms" text="SMS">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="429.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#ste" text="Statistiques">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

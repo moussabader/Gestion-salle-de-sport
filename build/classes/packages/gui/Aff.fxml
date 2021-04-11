@@ -5,15 +5,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222f3e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AffController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #6699ff 40%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AffController">
    <children>
-      <TableView fx:id="table" layoutX="3.0" layoutY="72.0" onMouseClicked="#selectid" prefHeight="200.0" prefWidth="626.0">
+      <TableView fx:id="table" layoutX="3.0" layoutY="72.0" onMouseClicked="#selectid" prefHeight="266.0" prefWidth="626.0">
         <columns>
           <TableColumn fx:id="ii" prefWidth="75.0" text="id" visible="false" />
           <TableColumn fx:id="tt" prefWidth="75.0" text="Titre" />
@@ -23,38 +22,34 @@
         </columns>
       </TableView>
       <Label fx:id="lbID" layoutX="529.0" layoutY="286.0" prefHeight="21.0" prefWidth="89.0" visible="false" />
-      <Label graphicTextGap="10.0" layoutX="126.0" layoutY="15.0" style="-fx-text-fill: #c8d6e5;" text="Nombre des Avis">
+      <Label graphicTextGap="10.0" layoutX="126.0" layoutY="15.0" text="Nombre des Avis">
          <font>
-            <Font name="System Bold" size="29.0" />
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
          </font></Label>
-      <Label fx:id="nbavis" layoutX="372.0" layoutY="26.0" style="-fx-text-fill: #dfe6e9;" text="Label" />
+      <Label fx:id="nbavis" layoutX="267.0" layoutY="15.0">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
       <ImageView fitHeight="21.0" fitWidth="45.0" layoutX="592.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="26.0" fitWidth="200.0" layoutX="-39.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="242.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" />
       <VBox layoutY="98.0" prefHeight="140.0" prefWidth="136.0" />
-      <ImageView fitHeight="46.0" fitWidth="26.0" layoutX="592.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Desktop/240_F_127722883_DD4Sp3V30YxvYut3sRsaJqv7TKloEuyH.jpg" />
-         </image>
-      </ImageView>
-      <TextField fx:id="filterField" layoutX="505.0" layoutY="21.0" prefHeight="31.0" prefWidth="113.0" promptText="Recherche" style="-fx-background-color: #FEFEFE;" />
-      <Button fx:id="bt_supp" layoutX="199.0" layoutY="357.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #FEFEFE;" text="Supprimer" />
-      <Button fx:id="bt_modifier" layoutX="19.0" layoutY="357.0" mnemonicParsing="false" onAction="#loadSuppmod" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: #f5f6fa;" text="modifier" />
-      <Button layoutX="381.0" layoutY="357.0" mnemonicParsing="false" onAction="#loadAjoutavis" prefHeight="31.0" prefWidth="134.0" style="-fx-background-color: #f5f6fa;" text="Ajouter Avis" />
-      <ImageView fitHeight="31.0" fitWidth="26.0" layoutX="199.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Desktop/cancel_close_delete_exit_logout_remove_x_icon_123217.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="31.0" fitWidth="26.0" layoutX="381.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Desktop/Plus_icon-icons.com_71848.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="35.0" layoutX="28.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Desktop/Edit_icon-icons.com_55921.png" />
-         </image>
-      </ImageView>
+      <TextField fx:id="filterField" layoutX="488.0" layoutY="29.0" prefHeight="31.0" prefWidth="113.0" promptText="Recherche" style="-fx-background-color: #FEFEFE;" />
+      <Button fx:id="bt_supp" layoutX="199.0" layoutY="357.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="31.0" prefWidth="136.0" text="Supprimer">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="bt_modifier" layoutX="19.0" layoutY="357.0" mnemonicParsing="false" onAction="#loadSuppmod" prefHeight="31.0" prefWidth="140.0" text="Modifier">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button layoutX="381.0" layoutY="357.0" mnemonicParsing="false" onAction="#loadAjoutavis" prefHeight="31.0" prefWidth="134.0" text="Ajouter ">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button layoutX="566.0" layoutY="357.0" mnemonicParsing="false" onAction="#interfaceMenuClient" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -151,7 +151,7 @@ public void showavii(){
     public ObservableList<Avis> getAvisList(){
         ObservableList<Avis> avislist = FXCollections.observableArrayList();
         Connection conn = getConnection();
-        String query = "SELECT * FROM avis";
+        String query = "SELECT * FROM avis ";
         
         Statement st;
         
@@ -263,6 +263,20 @@ stage.show();
         String query ="DELETE FROM avis WHERE idavis="+Integer.parseInt(lbID.getText())+"";
     executeUpdate(query);
     showavi();
+    }
+    @FXML
+    private void interfaceMenuClient(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+
+        try {
+            Parent root = loader.load();
+            root.getStylesheets().add(getClass().getResource("menu.css").toString());
+            lbID.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     

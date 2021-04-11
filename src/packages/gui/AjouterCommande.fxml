@@ -9,21 +9,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AjouterCommandeController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #6699ff 40%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.AjouterCommandeController">
    <children>
-      <Label layoutX="201.0" layoutY="14.0" text="Ajouter une Commande">
+      <Label layoutX="174.0" layoutY="14.0" text="Ajouter une Commande">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="Book Antiqua Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="149.0" text="Date de commande" />
-      <Label layoutX="51.0" layoutY="192.0" text="Quantité commandée" />
+      <Label layoutX="51.0" layoutY="149.0" text="Date de commande">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="51.0" layoutY="192.0" text="Quantité commandée">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Label>
       <DatePicker fx:id="datecmd" layoutX="313.0" layoutY="145.0" />
       <Spinner fx:id="qtecmd" layoutX="313.0" layoutY="188.0" prefHeight="25.0" prefWidth="105.0" />
-      <Button fx:id="btn_listcmd" layoutX="101.0" layoutY="316.0" mnemonicParsing="false" onAction="#afficherListeCommandes" text="Liste Commandes" />
-      <Button fx:id="btn_ajoutcmd" layoutX="245.0" layoutY="316.0" mnemonicParsing="false" onAction="#ajouterCommande" prefHeight="25.0" prefWidth="110.0" text="Ajouter" />
-      <Button fx:id="btn_listpr" layoutX="391.0" layoutY="316.0" mnemonicParsing="false" onAction="#afficherListeProduits" prefHeight="25.0" prefWidth="110.0" text="Liste des Produits" />
+      <Button fx:id="btn_listcmd" layoutX="93.0" layoutY="316.0" mnemonicParsing="false" onAction="#afficherListeCommandes" text="Liste Commandes">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="btn_ajoutcmd" layoutX="245.0" layoutY="316.0" mnemonicParsing="false" onAction="#ajouterCommande" prefHeight="25.0" prefWidth="110.0" text="Ajouter">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="btn_listpr" layoutX="382.0" layoutY="316.0" mnemonicParsing="false" onAction="#afficherListeProduits" prefHeight="28.0" prefWidth="134.0" text="Liste des Produits">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
       <Separator layoutX="242.0" layoutY="137.0" orientation="VERTICAL" prefHeight="102.0" prefWidth="1.0" />
       <TextField fx:id="id_pr" editable="false" layoutX="313.0" layoutY="102.0" visible="false" />
+      <Button layoutX="269.0" layoutY="352.0" mnemonicParsing="false" onAction="#interfaceMenuClient" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

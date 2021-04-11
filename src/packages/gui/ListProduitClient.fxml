@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="416.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListProduitClientController">
+<AnchorPane id="AnchorPane" prefHeight="416.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(to bottom, #6699ff 40%, #ff99cc 90%);" stylesheets="@menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packages.gui.ListProduitClientController">
    <children>
-      <Label layoutX="246.0" layoutY="14.0" text="Liste des Produits">
+      <Label layoutX="223.0" layoutY="14.0" text="Liste des Produits">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="Book Antiqua Bold Italic" size="24.0" />
          </font>
       </Label>
       <TableView fx:id="tv_pr_client" layoutX="31.0" layoutY="75.0" onMouseClicked="#showImage" prefHeight="200.0" prefWidth="316.0">
@@ -28,7 +28,10 @@
             <TableColumn fx:id="col_prix_c" prefWidth="82.0" text="Prix" />
         </columns>
       </TableView>
-      <Button fx:id="btn_commanderpr" layoutX="259.0" layoutY="320.0" mnemonicParsing="false" onAction="#afficherInterfaceAjoutCmd" text="Commander" />
+      <Button fx:id="btn_commanderpr" layoutX="259.0" layoutY="320.0" mnemonicParsing="false" onAction="#afficherInterfaceAjoutCmd" text="Commander">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
       <GridPane fx:id="grid_img" layoutX="411.0" layoutY="132.0" prefHeight="87.0" prefWidth="211.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -41,11 +44,15 @@
       <Separator layoutX="408.0" layoutY="75.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="0.0" />
       <Separator layoutX="599.0" layoutY="75.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="6.0" />
       <Separator layoutX="411.0" layoutY="274.0" prefHeight="3.0" prefWidth="191.0" />
-      <ToolBar layoutX="31.0" layoutY="277.0" prefHeight="35.0" prefWidth="230.0">
+      <ToolBar layoutX="31.0" layoutY="277.0" prefHeight="37.0" prefWidth="243.0">
         <items>
             <ChoiceBox fx:id="list_search" prefHeight="25.0" prefWidth="114.0" />
             <TextField fx:id="txt_search" prefHeight="25.0" prefWidth="100.0" />
         </items>
       </ToolBar>
+      <Button layoutX="276.0" layoutY="360.0" mnemonicParsing="false" onAction="#interfaceMenuClient" text="Retour">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

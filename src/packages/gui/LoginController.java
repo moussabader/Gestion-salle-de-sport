@@ -11,6 +11,7 @@ import packages.services.ServiceClient;
 import packages.services.ServiceCoach;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -29,6 +30,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
+//import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -37,12 +39,18 @@ import org.controlsfx.control.Notifications;
  */
 public class LoginController implements Initializable {
 public static int id  ; 
+private int occ = 0 ; 
+public static List<Client> Mylist = new ArrayList<>(); 
+
+
     @FXML
     private TextField login_text;
     @FXML
     private PasswordField mdp_text;
     @FXML
     private CheckBox checkpass;
+    @FXML
+    private CheckBox check;
     /**
      * Initializes the controller class.
      */
@@ -50,15 +58,18 @@ public static int id  ;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         showpassword() ; 
+     
     }    
 
     @FXML
-    private void login(ActionEvent event) throws IOException {
+    private void login(ActionEvent event) throws IOException, InterruptedException {
+        
         ServiceClient ser= new ServiceClient();
+        
         List<Client> li =ser.ListClasse(); 
         ServiceCoach se= new ServiceCoach();
         List<Coach> lco =se.ListClasse();
-        int i = 0 , test=0 ; 
+        int i = 0 , test=0;  
          
         if (login_text.getText().equals("admin")&&(mdp_text.getText().equals("admin"))){test=1 ; }
         
@@ -77,9 +88,8 @@ public static int id  ;
         
                 
         
-        
-        
-        
+        if(occ==3){delay() ;System.out.println("test "); }
+         
         
         if (test==1){
         FXMLLoader loader = new FXMLLoader();
@@ -87,13 +97,14 @@ public static int id  ;
         loader.setLocation(getClass().getResource("MenuAdmin.fxml"));
         
         Parent root = loader.load();
+        root.getStylesheets().add(getClass().getResource("menu.css").toString());
         login_text.getScene().setRoot(root);
         Notifications notificationBuilder = Notifications.create()
                                                      .title("Succusfuly ")
                                                      .graphic(null)
                                                      .hideAfter(javafx.util.Duration.seconds(5) )
                                                       .position(Pos.TOP_LEFT) ;
-        notificationBuilder.show();
+        //notificationBuilder.show();
         
         }
         else if (test==2) {FXMLLoader loader = new FXMLLoader();
@@ -101,6 +112,7 @@ public static int id  ;
         loader.setLocation(getClass().getResource("MenuClient.fxml"));
         
         Parent root = loader.load();
+        root.getStylesheets().add(getClass().getResource("menu.css").toString());
         login_text.getScene().setRoot(root);
         id=ser.getid(login_text.getText()) ;
         Notifications notificationBuilder = Notifications.create()
@@ -108,7 +120,7 @@ public static int id  ;
                                                      .graphic(null)
                                                      .hideAfter(javafx.util.Duration.seconds(5) )
                                                       .position(Pos.TOP_LEFT) ;
-      notificationBuilder.show();
+        //notificationBuilder.show();
         
         
         
@@ -124,8 +136,9 @@ public static int id  ;
         else if (test==3){
         FXMLLoader loader = new FXMLLoader();
         
-        loader.setLocation(getClass().getResource("Gcoach.fxml"));
+        loader.setLocation(getClass().getResource("MenuCoach.fxml"));
         Parent root = loader.load();
+        root.getStylesheets().add(getClass().getResource("menu.css").toString());
         login_text.getScene().setRoot(root);
         id=se.getid(login_text.getText()) ;  
         Notifications notificationBuilder = Notifications.create()
@@ -133,16 +146,24 @@ public static int id  ;
                                                      .graphic(null)
                                                      .hideAfter(javafx.util.Duration.seconds(5) )
                                                       .position(Pos.TOP_LEFT) ;
-      notificationBuilder.show();
+      //notificationBuilder.show();
         
         }
         
         
-        else {Alert al = new Alert(Alert.AlertType.ERROR);
+        else {
+        occ=occ+1 ;
+            System.out.println(""+occ);
+        Alert al = new Alert(Alert.AlertType.ERROR);
         al.setTitle("Alert");
         al.setContentText("Id ou mdp invalid  ");
         al.setHeaderText(null);
-        al.show() ;   }
+        al.show() ;
+         
+        
+        }
+        
+       
         
         
     }
@@ -168,27 +189,47 @@ public static int id  ;
     private void mdpoublier(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         
-        loader.setLocation(getClass().getResource("Mdpoublier.fxml"));
+        loader.setLocation(getClass().getResource("MdpoublierPage.fxml"));
+        Parent root = loader.load();
+        mdp_text.getScene().setRoot(root);
         
-        Parent tableViewParent = loader.load();
-        
-        Scene tableViewScene = new Scene(tableViewParent);
-        
-       
-        
-        
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(tableViewScene);
-        window.show();
     }
 
 
 
 
 
+private void delay() throws InterruptedException {
 
+        Thread.sleep(5000);
+
+    }
+
+    @FXML
+    private List<Client> enregistre() {
+        Client c = new Client () ; 
+        
+        if(check.isSelected()){
+        c.setLogin_c(login_text.getText()); 
+        c.setMdp_c(mdp_text.getText()); 
+        Mylist.add(c) ; 
+            System.out.println(""+login_text.getText()) ;
+       }
+       return Mylist ;  
+    }
+
+    @FXML
+    private void select(ActionEvent event) {
+        
+         Mylist=enregistre() ;
+        for (int i=0;i<Mylist.size();i++){
+        if(Mylist.get(i).getLogin_c().equals(login_text.getText())){
+        
+        mdp_text.setText(Mylist.get(i).getMdp_c()); 
+        }
+        
+        }
+    }
 
 
 
