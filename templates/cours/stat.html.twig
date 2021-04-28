@@ -1,0 +1,89 @@
+
+
+
+
+
+
+
+
+
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <h1>Statistique</h1>
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="{{ asset("https://cdn.jsdelivr.net/npm/chart.js@2.8.0")}}"></script>
+
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+
+    <div style="width:75%">
+        <canvas id="myChart"></canvas>
+    </div>
+    {% set nca=0 %}
+    {% set nreal=0%}
+
+
+    {% for f in cours %}
+
+
+        {% if 'Sport' == f.description %}
+            {% set  nca=nca+1 %}
+
+        {%endif %}
+        {% if 'Dance' == f.description %}
+            {% set  nreal=nreal+1 %}
+
+        {%endif %}
+
+
+    {% endfor %}
+
+    <script>
+        Chart.defaults.global.title.display=true;
+    </script>
+
+    <script language="javascript">
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: ['','sport','dance'],
+                datasets: [{
+                    label: 'Nombres totales de cours par type: ',
+                    backgroundColor: 'rgb(51,51,255)',
+                    borderColor:'rgb(51,51,255)' ,
+                    data: [0,{{ nca}},{{nreal}},]
+                }]
+            },
+
+            // Configuration options go here
+            options: {
+                title:{
+
+                    text:"Les types des cours "
+                }
+
+            }
+        });
+    </script>
+
+
+
+
+    </body>
+    </html>
+{% endblock %}
